@@ -308,7 +308,7 @@ def main():
     
     # Function to clone git repository
 
-    @st.cache_data(ttl=7200, show_spinner=False)  # Caches for 2 hours
+    
     def clone_git_repo(repo_url, destination):
         try:
         

@@ -1,0 +1,10 @@
+note 
+
+
+
+python -m venv minato-env
+
+
+
+
+minato-env\Scripts\activate

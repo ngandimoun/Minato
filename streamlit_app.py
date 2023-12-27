@@ -11,12 +11,14 @@ import random
 import json
 from openai import OpenAI
 import subprocess
+#import mimetypes
 import time
 import shutil
 import stat
 import pickle
 from pathlib import Path
 import git
+import streamlit_authenticator as stauth  # pip install streamlit-authenticator
 import re
 
 
@@ -157,7 +159,13 @@ def determine_language(code_context, user_query):
             return value
 
     # Default to 'text' if no specific language is identified
-    return 'ttted_response = format_response(f" {query_result}", 'text')
+    return 'text'
+
+def handle_query(user_query, code_context):
+    if user_query:
+        query_result = generate_query_response(user_query, code_context)
+        formatted_query = format_response(f" {user_query}", 'text')
+        formatted_response = format_response(f" {query_result}", 'text')
         st.session_state.chat_history.append({"question": formatted_query, "answer": formatted_response})
         return query_result
     return ""
@@ -501,11 +509,11 @@ if __name__ == "__main__":
 
 
 # ---- HIDE STREAMLIT STYLE ----
-#hide_st_style = """
- #           <style>
-  ##          #MainMenu {visibility: hidden;}
-    #        footer {visibility: hidden;}
-     #       header {visibility: hidden;}
-      #      </style>
-       #     """
-#st.markdown(hide_st_style, unsafe_allow_html=True)
+hide_st_style = """
+           <style>
+            MainMenu {visibility: hidden;}
+            footer {visibility: hidden;}
+           header {visibility: hidden;}
+           </style>
+            """
+st.markdown(hide_st_style, unsafe_allow_html=True)

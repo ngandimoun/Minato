@@ -18,7 +18,7 @@ import stat
 import pickle
 from pathlib import Path
 import git
-import streamlit_authenticator as stauth  # pip install streamlit-authenticator
+
 import re
 
 

@@ -11,7 +11,6 @@ import random
 import json
 from openai import OpenAI
 import subprocess
-import mimetypes
 import time
 import shutil
 import stat

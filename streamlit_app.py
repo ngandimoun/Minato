@@ -18,7 +18,7 @@ import stat
 import pickle
 from pathlib import Path
 import git
-
+import streamlit_authenticator as stauth  # pip install streamlit-authenticator
 import re
 
 
@@ -40,16 +40,6 @@ def set_css_to_increase_width():
     )
 
 set_css_to_increase_width()
-
-
-
-
-
-
-
-
-
-
 
 
 
@@ -308,7 +298,7 @@ def main():
     
     # Function to clone git repository
 
-    
+
     def clone_git_repo(repo_url, destination):
         try:
         
@@ -319,79 +309,109 @@ def main():
             return "Repository cloned successfully."
         except Exception as e:
             return f"Error cloning repository: {e}"
+            
+            
 
-    # Streamlit UI for cloning repository
-    st.subheader(" 🌌: Clone Git Repository")
 
-    st.caption("Enter a Git repository URL to clone it. Access and work with code from any public repository.")
 
+    def list_files_recursively(directory):
+        all_files = {}
+        for root, dirs, files in os.walk(directory):
+            for file in files:
+                relative_path = os.path.relpath(os.path.join(root, file), directory)
+                all_files[relative_path] = os.path.join(root, file)
+        return all_files
+
+    def filter_files(search_query, file_list):
+        if not search_query:
+            return file_list
+        return [file for file in file_list if search_query.lower() in file.lower()]
+
+
+    # Streamlit UI
+    st.subheader("🌌: Clone Git Repository")
     repo_url = st.text_input("Enter the Git repository URL")
-    destination = "path/to/clone"  # You can choose to make this a user input as well
+    destination = "path/to/clone"  # You might consider making this a user input
+
     if st.button("Clone Repository"):
         message = clone_git_repo(repo_url, destination)
         st.write(message)
-        
-        
+
+
+
+
+
     # Function to list files and directories in a directory
     def list_files_and_dirs(directory):
         return [f for f in os.listdir(directory) if os.path.isfile(os.path.join(directory, f))], \
                [d for d in os.listdir(directory) if os.path.isdir(os.path.join(directory, d))]
-    
+
+    if 'current_path' not in st.session_state:
+        st.session_state['current_path'] = destination
+
+    def update_path(new_path):
+        st.session_state['current_path'] = new_path
+
+
+
+    st.markdown("### Examine the Names of Directories and Files.")
+    def file_explorer(path):
+        files, dirs = list_files_and_dirs(path)
+
+        if path != destination and st.button('Go up'):
+            update_path(os.path.dirname(path))
         
-        
-    # UI to display files and directories from the cloned repository
+        with st.expander("Directories Names"):
+            for d in dirs:
+                if st.button(f"📁 {d}"):
+                    update_path(os.path.join(path, d))
+
+        selected_files = st.multiselect("FIles Names", files)
+
+        if selected_files:
+            for selected_file in selected_files:
+                file_path = os.path.join(path, selected_file)
+
+
+    file_explorer(st.session_state['current_path'])
+
+
+
+
+    repo_files = {}
     if os.path.exists(destination):
-        st.subheader("🌌: Files and Directories in Repository")
+        repo_files = list_files_recursively(destination)
 
-        files, dirs = list_files_and_dirs(destination)
+    
+    # Live search implementation
+    search_query = st.text_input("Search for Files or Input Specific Names", key="search")
 
-        # Allow user to select a directory to navigate into
-        if dirs:
-            selected_dir = st.selectbox("Select a directory", [".."] + dirs)
-            if selected_dir != "..":
-                destination = os.path.join(destination, selected_dir)
-                files, _ = list_files_and_dirs(destination)
-                
-             
-        # Display files for the current directory
-        if files:
-            selected_files = st.multiselect("Select files to display", files)
+    if repo_files:
+        filtered_files = filter_files(search_query, list(repo_files.keys()))
+        selected_files_paths = st.multiselect("Select Files to Display", filtered_files, format_func=lambda x: x.split('/')[-1])
 
-            # Only proceed if there are selected files
-            if selected_files:
-                num_columns = len(selected_files)
-                # Ensure there is at least one column
-                if num_columns > 0:
-                    columns = st.columns(num_columns)
+        code_context = ""
+        if selected_files_paths:
+            num_columns = len(selected_files_paths)
+            if num_columns > 0:
+                columns = st.columns(num_columns)
 
-                    for i, selected_file in enumerate(selected_files):
-                        file_path = os.path.join(destination, selected_file)
-                        with open(file_path, "r") as file:
-                            file_content = file.read()
-                            file_extension = selected_file.split('.')[-1]
-
-                            language_map = {
-                                'py': 'python', 'js': 'javascript', 'css': 'css', 'cpp': 'c_cpp', 'dart': 'dart',
-                                'java': 'java', 'sol': 'solidity', 'php': 'php', 'cs': 'csharp', 'go': 'golang',
-                                'rb': 'ruby', 'sql': 'sql', 'swift': 'swift', 'kt': 'kotlin', 'html': 'html'
+                for i, file_path in enumerate(selected_files_paths):
+                    with open(repo_files[file_path], "r") as file:
+                        file_content = file.read()
+                        file_extension = file_path.split('.')[-1]
+                        language_map = {
+                            'py': 'python', 'js': 'javascript', 'css': 'css', 'cpp': 'c_cpp', 'dart': 'dart',
+                            'java': 'java', 'sol': 'solidity', 'php': 'php', 'cs': 'csharp', 'go': 'golang',
+                            'rb': 'ruby', 'sql': 'sql', 'swift': 'swift', 'kt': 'kotlin', 'html': 'html'
                             }
+                        language = language_map.get(file_extension, 'text')
 
-                            language = language_map.get(file_extension, 'text')
+                        with columns[i]:
+                            st_ace.st_ace(language=language, value=file_content, theme="twilight", key=f"ace-editor-{file_path}", readonly=True, height=300)
 
-                            # Use st_ace for displaying file content in the respective column
-                            with columns[i]:
-                                st_ace.st_ace(
-                                    language=language,
-                                    value=file_content,
-                                    theme="twilight",
-                                    key=f"ace-editor-{selected_file}",
-                                    readonly=True,
-                                    height=300
-                                )
-
-
-                            # Append file content to code_context for further processing
-                            code_context += f"\n\nFile Name: {selected_file}\n{file_content}"
+                        # Append file content to code_context for further processing
+                        code_context += f"\n\nFile Path: {file_path}\nFile Content:\n{file_content}"
 
 
 
@@ -510,10 +530,10 @@ if __name__ == "__main__":
 
 # ---- HIDE STREAMLIT STYLE ----
 hide_st_style = """
-           <style>
+            <style>
             MainMenu {visibility: hidden;}
             footer {visibility: hidden;}
-           header {visibility: hidden;}
-           </style>
+            header {visibility: hidden;}
+            </style>
             """
 st.markdown(hide_st_style, unsafe_allow_html=True)

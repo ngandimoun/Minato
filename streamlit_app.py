@@ -1,4 +1,4 @@
-# Import necessary libraries
+# Import necessary libraries hello world
 import streamlit as st
 import streamlit_ace as st_ace
 import html
@@ -518,7 +518,7 @@ def main():
 
     # Display the response
     if 'response' in st.session_state and st.session_state.response:
-        st.markdown(f"**Minato:**\n{st.session_state.response}")
+        st.markdown(f"**MinatoMinato:**\n{st.session_state.response}")
 
 
 if __name__ == "__main__":

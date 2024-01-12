@@ -422,7 +422,7 @@ def main():
             - [Get free Minato GPT Credit](https://discord.com/invite/8QcBwFFP)
             - [Sign up for the VSCode Extension](https://forms.gle/1Zs4NcsscFp9pxM77)
         """)
-        st.write("## Configuration")
+        st.write("## Please add your API Key to use Minato API")
         api_key = st.text_input("Enter your OpenAI API key or Minato free GPT Credit", type="password")
         if api_key:
             st.session_state["api_key"] = api_key

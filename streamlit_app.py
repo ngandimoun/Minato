@@ -419,7 +419,7 @@ def main():
         # Additional section for Discord and Email
         st.write("## Get in Touch")
         st.markdown("""
-            - [Get free Minato Credit](https://discord.com/invite/8QcBwFFP)
+            - [Get free Minato GPT Credit](https://discord.com/invite/8QcBwFFP)
             - [Sign up for the VSCode Extension](https://forms.gle/1Zs4NcsscFp9pxM77)
         """)
         st.write("## Configuration")

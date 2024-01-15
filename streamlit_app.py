@@ -167,9 +167,7 @@ def main():
      # Add an icon from an online source
     st.image("https://www.pngitem.com/pimgs/m/90-903305_naruto-kunai-minato-freetoedit-hd-png-download.png", width=100)
     
-    st.title("Minato AI Co-Pilot for Large Codebases")
-
-     st.write("## Get more Minato products")
+    st.title("Minato: AI expert on any codebase")
     
     # CSS styling
     st.markdown("""
@@ -227,7 +225,7 @@ def main():
 
     # File uploader for various code file types
     file_types = ["py", "js", "css", "cpp", "dart", "java", "sol", "php", "cs", "go", "rb", "sql", "swift", "kt", "html", "txt", "md"]
-    st.markdown("## Files Uploader")
+    st.markdown("## Step 1: Enter the link to any GitHub repo or upload your own repo.")
     st.caption("Upload your code files here. Supported formats include Python, JavaScript, CSS, C++, Dart, Java, and more. View the contents of uploaded files in the next section.")
 
     uploaded_files = st.file_uploader("Upload your code files", type=file_types, accept_multiple_files=True)
@@ -446,7 +444,7 @@ def main():
 
 
     # Chatbot-like interface on the main page
-    st.markdown("### Ask a Question")
+    st.markdown("### Step 2: Chat with Minato to understand, navigate, and generate code for the repo.")
     
     
     # Sample questions

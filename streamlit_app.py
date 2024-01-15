@@ -165,7 +165,7 @@ def handle_query(user_query, code_context):
 def main():
     
      # Add an icon from an online source
-    st.image("https://www.pngitem.com/pimgs/m/90-903305_naruto-kunai-minato-freetoedit-hd-png-download.png", width=300)
+    st.image("https://www.pngitem.com/pimgs/m/90-903305_naruto-kunai-minato-freetoedit-hd-png-download.png", width=100)
     
     st.title("Minato AI Co-Pilot for Large Codebases")
     

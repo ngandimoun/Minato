@@ -168,6 +168,8 @@ def main():
     st.image("https://www.pngitem.com/pimgs/m/90-903305_naruto-kunai-minato-freetoedit-hd-png-download.png", width=100)
     
     st.title("Minato AI Co-Pilot for Large Codebases")
+
+st.markdown("## Files Uploader")
     
     # CSS styling
     st.markdown("""

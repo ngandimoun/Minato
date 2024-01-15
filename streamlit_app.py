@@ -419,8 +419,8 @@ def main():
         # Additional section for Discord and Email
         st.write("## Get more Minato products")
         st.markdown("""
-            - [Get free Minato GPT Credit](https://discord.gg/pNvPGqWfyX)
-            - [Sign up for the VSCode Extension](https://forms.gle/1Zs4NcsscFp9pxM77)
+            - [🤑 Get Minato Free Open AI Credit](https://discord.gg/pNvPGqWfyX)
+            - [VSCode Extension: Get early access!](https://forms.gle/1Zs4NcsscFp9pxM77)
         """)
         st.write("## Please add your API Key to use Minato API")
         api_key = st.text_input("Enter your OpenAI API key or Minato free GPT Credit", type="password")

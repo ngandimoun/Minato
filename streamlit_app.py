@@ -168,9 +168,12 @@ def main():
     #st.image("https://www.pngitem.com/pimgs/m/90-903305_naruto-kunai-minato-freetoedit-hd-png-download.png", width=100)
     
     st.title("🗡️ Minato: Search, learn & edit 1000+ file codebases")
-    st.text("AI expert on any codebase, find out what plugins are ")
+    st.text("AI expert on any codebase, find out what plugins are needed, debug your code to find out what you need to do to get it working!")
     st.markdown("\n")
-    st.subheader("Step 1: Enter the link to any GitHub repo or upload your own project")
+    st.markdown("\n")
+    st.markdown("\n")
+    st.header("Step 1")
+    st.subheader("Enter the link to any GitHub repo or upload your own project")
     st.subheader("Step 2: Select the files you'd like to work with.")
     st.subheader("Step 3: Chat with Minato to understand, navigate, and generate code for the repo.")
     

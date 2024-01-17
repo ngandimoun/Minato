@@ -167,6 +167,7 @@ def main():
     st.image("https://www.pngitem.com/pimgs/m/90-903305_naruto-kunai-minato-freetoedit-hd-png-download.png", width=100)
     
     st.title("Minato: AI expert on any codebase")
+    st.title("Minato: AI expert on any codebase")
     
     # CSS styling
     st.markdown("""

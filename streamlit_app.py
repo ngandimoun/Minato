@@ -246,7 +246,7 @@ def main():
 
     # File uploader for various code file types
     file_types = ["py", "js", "css", "cpp", "dart", "java", "sol", "php", "cs", "go", "rb", "sql", "swift", "kt", "html", "txt", "md"]
-    st.markdown("## Step 1: Enter the link to any GitHub repo or upload your own repo.")
+    #st.markdown("## Step 1: Enter the link to any GitHub repo or upload your own repo.")
     st.caption("Upload your code files here. Supported formats include Python, JavaScript, CSS, C++, Dart, Java, and more. View the contents of uploaded files in the next section.")
 
     uploaded_files = st.file_uploader("Upload your code files", type=file_types, accept_multiple_files=True)

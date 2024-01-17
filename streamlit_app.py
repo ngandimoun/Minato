@@ -169,7 +169,7 @@ def main():
     
     #st.title("🗡️ Minato: Search, learn & edit 1000+ file codebases")
     st.title("🗡️ Minato")
-    st.text("AI expert on any codebase, navigate 1000+ file codebases")
+    st.text("AI expert on any codebase")
     st.markdown("\n")
     st.markdown("\n")
     st.text("Step 1: Enter the link to any GitHub repo or upload your own project")

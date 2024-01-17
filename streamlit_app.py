@@ -456,8 +456,10 @@ def main():
 
 
 
-    # Chatbot-like interface on the main page st.markdown("### Step 2: Chat with Minato to understand, navigate, and generate code for the repo.")
-    st.text("STEP 3 Chat with Minato to understand, navigate, and generate code for selected files.")
+    # Chatbot-like interface on the main page st.text("STEP 3 Chat with Minato to understand, navigate, and generate code for selected files.")
+    st.markdown("\n")
+    st.markdown("\n")
+    st.markdown("### Step 2: Chat with Minato to understand, navigate, and generate code for the repo.")
     
     
     # Sample questions

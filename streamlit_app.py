@@ -417,6 +417,7 @@ def main():
 
     with st.sidebar:
         # Additional section for Discord and Email
+        st.image("https://www.pngitem.com/pimgs/m/90-903305_naruto-kunai-minato-freetoedit-hd-png-download.png", width=80)
         st.write("## Get more Minato products")
         st.markdown("""
             - [🤑 Get Minato Free Open AI Credit](https://discord.gg/pNvPGqWfyX)

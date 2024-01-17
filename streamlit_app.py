@@ -182,7 +182,12 @@ def main():
     st.markdown("\n")
     st.markdown("\n")
     st.markdown("\n")
-    
+    st.markdown("\n")
+    st.markdown("\n")
+    st.markdown("\n")
+    st.markdown("\n")
+    st.markdown("\n")
+    st.markdown("\n")    
     
     # CSS styling
     st.markdown("""

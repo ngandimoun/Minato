@@ -370,7 +370,7 @@ def main():
     st.markdown("\n")
     st.markdown("\n")
     st.markdown("\n")
-    st.markdown("### Examine the Names of Directories and Files.")
+    # st.markdown("### Examine the Names of Directories and Files.")
     def file_explorer(path):
         files, dirs = list_files_and_dirs(path)
 

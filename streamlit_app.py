@@ -172,7 +172,6 @@ def main():
     st.text("AI expert on any codebase, find out what plugins are needed, debug your code to find out what you need to do to get it working!")
     st.markdown("\n")
     st.markdown("\n")
-    st.markdown("\n")
     st.text("Step 1: Enter the link to any GitHub repo or upload your own project")
     st.markdown("\n")
     st.text("Step 2: Select the files you'd like to work with.")

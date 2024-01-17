@@ -164,9 +164,10 @@ def handle_query(user_query, code_context):
 def main():
     
      # Add an icon from an online source
-    st.image("https://www.pngitem.com/pimgs/m/90-903305_naruto-kunai-minato-freetoedit-hd-png-download.png", width=100)
+    # Hid this icon and added it to the next line copying onboard.app
+    #st.image("https://www.pngitem.com/pimgs/m/90-903305_naruto-kunai-minato-freetoedit-hd-png-download.png", width=100)
     
-    st.title("🥷 🗡️ Minato: AI expert on any codebase")
+    st.title("🗡️ Minato: AI expert on any codebase")
     st.subheader("Minato: AI expert on any codebase")
     
     # CSS styling
@@ -417,7 +418,6 @@ def main():
 
     with st.sidebar:
         # Additional section for Discord and Email
-        st.image("https://www.pngitem.com/pimgs/m/90-903305_naruto-kunai-minato-freetoedit-hd-png-download.png", width=80)
         st.write("## Get more Minato products")
         st.markdown("""
             - [🤑 Get Minato Free Open AI Credit](https://discord.gg/pNvPGqWfyX)

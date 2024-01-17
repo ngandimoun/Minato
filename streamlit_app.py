@@ -476,7 +476,7 @@ def main():
    
     sample_questions = [
         "How do I implement a binary search in Python?",
-        "What are the differences between let and var in JavaScript?",
+        "What are the differences between let and var in JavaScript?"
          ]
 
 

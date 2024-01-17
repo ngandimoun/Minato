@@ -173,7 +173,7 @@ def main():
     st.markdown("\n")
     st.markdown("\n")
     st.markdown("\n")
-    st.text("STEP 1 Upload your own files or enter the link to any GitHub repo")
+    st.text("STEP 1 Upload your own files or enter the link to any GitHub repo.")
     st.markdown("\n")
     st.text("STEP 2 Select the files you'd like to work with.")
     st.markdown("\n")

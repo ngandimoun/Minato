@@ -240,7 +240,7 @@ def main():
     #st.markdown("## Step 1: Enter the link to any GitHub repo or upload your own repo.")
     #st.caption("Upload your code files here. Supported formats include Python, JavaScript, CSS, C++, Dart, Java, and more. View the contents of uploaded files in the next section.")
 
-    uploaded_files = st.file_uploader("Step 1 - Upload your own files", type=file_types, accept_multiple_files=True)
+    uploaded_files = st.file_uploader("Step 1 Upload your own files", type=file_types, accept_multiple_files=True)
     
 
 
@@ -343,7 +343,7 @@ def main():
     # Streamlit UI st.subheader("🌌: Clone Git Repository")
     
     st.text("or")
-    repo_url = st.text_input("Step 1 - Enter the link to any GitHub repo")
+    repo_url = st.text_input("Step 1 Enter the link to any GitHub repo")
     destination = "path/to/clone"  # You might consider making this a user input
 
     if st.button("Clone Repository"):

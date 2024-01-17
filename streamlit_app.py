@@ -370,14 +370,15 @@ def main():
     st.markdown("\n")
     st.markdown("\n")
     st.markdown("\n")
-    # st.markdown("### Examine the Names of Directories and Files.")
+    # This is where I changed the with st.expander("Directories Names"): to "STEP 2 Select the files you'd like to work with." 
+    # st.markdown("### Examine the Names of Directories and Files.") 
     def file_explorer(path):
         files, dirs = list_files_and_dirs(path)
 
         if path != destination and st.button('Go up'):
             update_path(os.path.dirname(path))
         
-        with st.expander("Directories Names"):
+        with st.expander("STEP 2 Select the files you'd like to work with."):
             for d in dirs:
                 if st.button(f"📁 {d}"):
                     update_path(os.path.join(path, d))

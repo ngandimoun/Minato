@@ -177,6 +177,10 @@ def main():
     st.text("Step 2: Select the files you'd like to work with.")
     st.markdown("\n")
     st.text("Step 3: Chat with Minato to understand, navigate, and generate code for selected files.")
+    st.markdown("\n")
+    st.markdown("\n")
+    st.markdown("\n")
+    st.markdown("\n")
    
     
     # CSS styling

@@ -340,8 +340,9 @@ def main():
         return [file for file in file_list if search_query.lower() in file.lower()]
 
 
-    # Streamlit UI
-    st.subheader("🌌: Clone Git Repository")
+    # Streamlit UI st.subheader("🌌: Clone Git Repository")
+    
+    st.text("or")
     repo_url = st.text_input("Enter the Git repository URL")
     destination = "path/to/clone"  # You might consider making this a user input
 

@@ -362,6 +362,7 @@ def main():
 
 
 
+
     st.markdown("\n")
     st.markdown("\n")
     st.markdown("\n")
@@ -459,7 +460,10 @@ def main():
     # Chatbot-like interface on the main page st.text("STEP 3 Chat with Minato to understand, navigate, and generate code for selected files.")
     st.markdown("\n")
     st.markdown("\n")
-    st.markdown("STEP 3 Chat with Minato to understand, navigate, and generate code for selected files")
+    st.markdown("\n")    
+    st.markdown("\n")
+    st.markdown("\n")
+    st.text("STEP 3 Chat with Minato to understand, navigate, and generate code for selected files")
     
     
     # Sample questions

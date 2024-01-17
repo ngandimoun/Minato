@@ -472,10 +472,10 @@ def main():
     sample_questions = [
         "How do I implement a binary search in Python?",
         "What are the differences between let and var in JavaScript?",
-        "How can I center a div in CSS?",
-        "What is the use of async/await in JavaScript?",
-        "I'm working on a React component in JavaScript that interacts with an API. Could you provide a basic test script using Jest and React Testing Library? The test should check if the component renders and handles API data correctly.",
-        "I have a Java class with several methods that perform various operations. Could you show me how to write JUnit test cases for one of these methods? The test should include checks for valid inputs, handling of invalid inputs, and ensuring the method behaves as expected."
+        #"How can I center a div in CSS?",
+        #"What is the use of async/await in JavaScript?",
+        #"I'm working on a React component in JavaScript that interacts with an API. Could you provide a basic test script using Jest and React Testing Library? The test should check if the component renders and handles API data correctly.",
+        #"I have a Java class with several methods that perform various operations. Could you show me how to write JUnit test cases for one of these methods? The test should include checks for valid inputs, handling of invalid inputs, and ensuring the method behaves as expected."
     ]
 
 

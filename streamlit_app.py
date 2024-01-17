@@ -167,7 +167,7 @@ def main():
     # Hid this icon and added it to the next line copying onboard.app
     #st.image("https://www.pngitem.com/pimgs/m/90-903305_naruto-kunai-minato-freetoedit-hd-png-download.png", width=100)
     
-    st.title("🗡️ Minato: Search, analyse, learn & edit 1000+ files for large codebases")
+    st.title("🗡️ Minato: Search, learn & edit 1000+ file large codebases")
     st.text("Minato: AI expert on any codebase")
     
     # CSS styling

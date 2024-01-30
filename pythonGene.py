@@ -10,7 +10,7 @@ import uuid
 import importlib
 from openai import OpenAI
 
-
+import scipy
 
 
 

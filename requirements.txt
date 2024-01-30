@@ -9,6 +9,7 @@ plotly
 html5lib
 json5
 subprocess32
+mimetypes2
 pytimeparse
 shutilwhich
 stat-utils
@@ -16,3 +17,16 @@ pickle-mixin
 pathlib2
 GitPython
 regex
+scipy
+keras
+flask
+django
+requests
+lxml
+pytest
+aiohttp
+pygame
+PyQt5
+PyOpenGL
+selenium
+PyAutoGUI

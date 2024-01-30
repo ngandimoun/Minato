@@ -30,3 +30,4 @@ PyQt5
 PyOpenGL
 selenium
 PyAutoGUI
+python-dotenv

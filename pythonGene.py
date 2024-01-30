@@ -43,8 +43,8 @@ def execute_python_code(code):
         'numpy',  # Scientific Computing, Array Manipulation
         'matplotlib',  # Data Visualization
         #'scipy',  # Scientific Computing, used with NumPy
-        'flask',  # Web Development
-        'django',  # Web Development
+        #'flask',  # Web Development
+        #'django',  # Web Development
         'requests',  # API Development, Web Scraping
 
         'lxml',  # Web Scraping, Parsing XML and HTML
@@ -264,8 +264,8 @@ def main():
             "Metaprogramming", "Memory Management", "Python C Extensions",
 
             # Web Development
-            "Web Scraping", "Web Development with Flask/Django", "API Development",
-            "Template Engines (Jinja2)", "WSGI and ASGI Concepts",
+            "Web Scraping", # "Web Development with Flask/Django", "API Development",
+            "Template Engines (Jinja2)", #"WSGI and ASGI Concepts",
 
             # Data Analysis and Visualization
             "Data Analysis with Pandas", "Data Cleaning", "Data Visualization with Matplotlib",
@@ -276,7 +276,7 @@ def main():
             "Scripting with Python", "Building Command Line Interfaces",
 
             # Scientific and Numeric Computing
-            "Scientific Computing with NumPy", "Statistical Analysis with SciPy",
+            "Scientific Computing with NumPy", # "Statistical Analysis with SciPy",
             "Symbolic Mathematics with SymPy",
 
             # Blockchain and Cryptocurrency

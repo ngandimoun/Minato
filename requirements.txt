@@ -17,7 +17,7 @@ pickle-mixin
 pathlib2
 GitPython
 regex
-scipy
+
 keras
 flask
 django

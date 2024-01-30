@@ -53,7 +53,7 @@ def execute_python_code(code):
         'aiohttp',  # Asynchronous HTTP Client/Server
       #  'tkinter',  # GUI Development (note: it's a standard library, so it might not need to be in this list)
        # 'pygame',  # Game Development
-        'pyqt5',  # GUI Development
+      #  'pyqt5',  # GUI Development
         'pyopengl',  # Game Development, Graphics
 
         'pyautogui',  # GUI Automation

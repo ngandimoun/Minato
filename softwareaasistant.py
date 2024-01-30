@@ -19,7 +19,11 @@ st.markdown("""
     
 USER_AVATAR = "👨🏽‍💻"
 BOT_AVATAR = "☯️"
-client = OpenAI(api_key=os.getenv("OPENAI_API_KEY"))
+
+api_key = st.secrets["OPENAI_API_KEY"]
+client = OpenAI(api_key=api_key)
+
+
 
 # Ensure openai_model is initialized in session state
 if "openai_model" not in st.session_state:

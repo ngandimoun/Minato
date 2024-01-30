@@ -56,7 +56,7 @@ def execute_python_code(code):
       #  'pyqt5',  # GUI Development
         #'pyopengl',  # Game Development, Graphics
 
-        'pyautogui',  # GUI Automation
+     #   'pyautogui',  # GUI Automation
         're',  # Regular Expressions (note: it's a standard library)
         'socket',  # Network Programming (note: it's a standard library)
         'os',  # File I/O, Operating System Interaction (note: it's a standard library)
@@ -273,7 +273,7 @@ def main():
             "Data Manipulation with SQLAlachemy", "Advanced Data Visualization with Seaborn",
 
             # Application and Scripting
-            "Automation Scripts",# "GUI Development with Tkinter", 
+         #   "Automation Scripts",# "GUI Development with Tkinter", 
          #   "Game Development with Pygame",
             "Scripting with Python", "Building Command Line Interfaces",
 

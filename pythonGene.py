@@ -51,7 +51,7 @@ def execute_python_code(code):
        # 'pytest',  # Testing
         'asyncio',  # Concurrency
         'aiohttp',  # Asynchronous HTTP Client/Server
-        'tkinter',  # GUI Development (note: it's a standard library, so it might not need to be in this list)
+      #  'tkinter',  # GUI Development (note: it's a standard library, so it might not need to be in this list)
         'pygame',  # Game Development
         'pyqt5',  # GUI Development
         'pyopengl',  # Game Development, Graphics
@@ -273,7 +273,8 @@ def main():
             "Data Manipulation with SQLAlachemy", "Advanced Data Visualization with Seaborn",
 
             # Application and Scripting
-            "Automation Scripts", "GUI Development with Tkinter", "Game Development with Pygame",
+            "Automation Scripts",# "GUI Development with Tkinter", 
+            "Game Development with Pygame",
             "Scripting with Python", "Building Command Line Interfaces",
 
             # Scientific and Numeric Computing

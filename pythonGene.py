@@ -52,7 +52,7 @@ def execute_python_code(code):
         'asyncio',  # Concurrency
         'aiohttp',  # Asynchronous HTTP Client/Server
       #  'tkinter',  # GUI Development (note: it's a standard library, so it might not need to be in this list)
-        'pygame',  # Game Development
+       # 'pygame',  # Game Development
         'pyqt5',  # GUI Development
         'pyopengl',  # Game Development, Graphics
 
@@ -274,7 +274,7 @@ def main():
 
             # Application and Scripting
             "Automation Scripts",# "GUI Development with Tkinter", 
-            "Game Development with Pygame",
+         #   "Game Development with Pygame",
             "Scripting with Python", "Building Command Line Interfaces",
 
             # Scientific and Numeric Computing

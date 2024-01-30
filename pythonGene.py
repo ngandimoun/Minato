@@ -392,7 +392,7 @@ if __name__ == "__main__":
 # ---- HIDE STREAMLIT STYLE ----
 hide_st_style = """
             <style>
-            #MainMenu {visibility: hidden;}
+            #MainMenu {visibility: visible;}
             footer {visibility: hidden;}
             header {visibility: visible;}
             </style>

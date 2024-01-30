@@ -11,13 +11,13 @@ import importlib
 from openai import OpenAI
 
 
+
 # Define the function to get the OpenAI client
 def get_openai_client():
-    # Replace 'YOUR_OPENAI_API_KEY' with your actual OpenAI API key
-
-    openai.api_key = os.getenv('OPENAI_API_KEY')
+    # Access the OpenAI API key from Streamlit secrets
+    openai.api_key = st.secrets["OPENAI_API_KEY"]
+    
     return openai
-
 
 def execute_python_code(code):
 

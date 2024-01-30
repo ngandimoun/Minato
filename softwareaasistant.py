@@ -1,10 +1,9 @@
 from openai import OpenAI
 import streamlit as st
-from dotenv import load_dotenv
+
 import os
 import shelve
 
-load_dotenv()
 
 with st.expander("Configuration"):
     # Additional section for Discord and Email

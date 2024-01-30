@@ -416,7 +416,7 @@ if prompt := st.chat_input("Ask Minato, your Software Questions??"):
 
 
 # Save chat history after each interaction
-save_chat_history(st.session_state.messages)
+#save_chat_history(st.session_state.messages)
 
 # ---- HIDE STREAMLIT STYLE ----
 hide_st_style = """

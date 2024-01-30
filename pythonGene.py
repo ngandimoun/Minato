@@ -48,7 +48,7 @@ def execute_python_code(code):
         'requests',  # API Development, Web Scraping
 
        # 'lxml',  # Web Scraping, Parsing XML and HTML
-        'pytest',  # Testing
+       # 'pytest',  # Testing
         'asyncio',  # Concurrency
         'aiohttp',  # Asynchronous HTTP Client/Server
         'tkinter',  # GUI Development (note: it's a standard library, so it might not need to be in this list)
@@ -260,7 +260,8 @@ def main():
 
             # Advanced Python Topics
             "Algorithms", "Binary Search", "Functional Programming", "Object-Oriented Programming",
-            "Concurrency with asyncio", "Testing with PyTest", "Network Programming",
+            "Concurrency with asyncio", #"Testing with PyTest", 
+            "Network Programming",
             "Metaprogramming", "Memory Management", "Python C Extensions",
 
             # Web Development

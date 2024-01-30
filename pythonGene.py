@@ -42,7 +42,7 @@ def execute_python_code(code):
         'pandas',  # Data Analysis
         'numpy',  # Scientific Computing, Array Manipulation
         'matplotlib',  # Data Visualization
-        'scipy',  # Scientific Computing, used with NumPy
+        #'scipy',  # Scientific Computing, used with NumPy
         'flask',  # Web Development
         'django',  # Web Development
         'requests',  # API Development, Web Scraping

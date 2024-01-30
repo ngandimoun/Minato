@@ -12,12 +12,30 @@ from openai import OpenAI
 
 
 
+
+
 # Define the function to get the OpenAI client
 def get_openai_client():
-    # Access the OpenAI API key from Streamlit secrets
-    openai.api_key = st.secrets["OPENAI_API_KEY"]
-    
+    # Replace 'YOUR_OPENAI_API_KEY' with your actual Minato Key
+
+    openai.api_key = os.getenv('OPENAI_API_KEY')
     return openai
+
+
+
+# OpenAI client setup
+
+def get_openai_client():
+    """
+    Create an OpenAI client using the API key provided by the user.
+    """
+    api_key = st.session_state.get("api_key")
+    if api_key:
+        return openai.Client(api_key=api_key)
+    else:
+        return None
+        
+
 
 def execute_python_code(code):
 
@@ -199,7 +217,24 @@ def generate_challenge(difficulty, topic):
 # Main function for the Streamlit app
 def main():
     #st.set_page_config(layout="wide")
+    with st.expander("Configuration"):
+        # Additional section for Discord and Email
+        st.markdown("""
+            - [🤑 Get Minato Free Credit](https://discord.gg/pNvPGqWfyX)
 
+        """)
+        
+        st.markdown("""
+    <h2>
+        <span style="color: #2874A6; font-weight: bold; font-size: 24px;">Please add your Minato Key</span>
+    </h2>
+    """, unsafe_allow_html=True)
+    
+        api_key = st.text_input("Enter your Minato Key", type="password")
+        if api_key:
+            st.session_state["api_key"] = api_key
+        else:
+            st.warning("Please enter your Minato Key.")
 
     col1, col2 = st.columns(2)
 
@@ -307,7 +342,7 @@ def main():
 
         st.caption('Click first on  :blue[Apply] before _Run code_  and others :sunglasses:')
 
-        st.sidebar.write("Close the navigation sidebar for a better viewing experience.")
+        
 
         # Flags to track which button has been pressed
         run_clicked = False

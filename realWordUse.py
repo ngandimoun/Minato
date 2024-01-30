@@ -42,10 +42,11 @@ set_css_to_increase_width()
 
 # Define the function to get the OpenAI client
 def get_openai_client():
-    # Access the OpenAI API key from Streamlit secrets
-    openai.api_key = st.secrets["OPENAI_API_KEY"]
-    
+    # Replace 'YOUR_OPENAI_API_KEY' with your actual Minato Key
+
+    openai.api_key = os.getenv('OPENAI_API_KEY')
     return openai
+
 
 
 # OpenAI client setup

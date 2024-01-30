@@ -9,15 +9,27 @@ from openai import OpenAI
 import os
 
 
-
-
-
 # Define the function to get the OpenAI client
 def get_openai_client():
-    # Access the OpenAI API key from Streamlit secrets
-    openai.api_key = st.secrets["OPENAI_API_KEY"]
-    
+    # Replace 'YOUR_OPENAI_API_KEY' with your actual Minato Key
+
+    openai.api_key = os.getenv('OPENAI_API_KEY')
     return openai
+
+
+
+# OpenAI client setup
+
+def get_openai_client():
+    """
+    Create an OpenAI client using the API key provided by the user.
+    """
+    api_key = st.session_state.get("api_key")
+    if api_key:
+        return openai.Client(api_key=api_key)
+    else:
+        return None
+        
 
 # Function to execute the Python code safely
 def execute_python_code(code):
@@ -184,8 +196,8 @@ def generate_problems(difficulty, topic):
         st.error("No OpenAI API key provided.")
         return
 
-    combined_prompt = f"Create a {difficulty} level computer science related to {topic}. " \
-                      f"Provide a problem statement."
+    combined_prompt = f"Create a {difficulty} level computer science related to {topic}, with a programming language. " \
+                      f"Provide a problem statement, with a programming language."
 
     try:
         stream_response = client.completions.create(
@@ -225,7 +237,26 @@ def generate_problems(difficulty, topic):
 def main():
     #st.set_page_config(layout="wide")
 
+    with st.expander("Configuration"):
+        # Additional section for Discord and Email
+        st.markdown("""
+            - [🤑 Get Minato Free Credit](https://discord.gg/pNvPGqWfyX)
 
+        """)
+        
+        st.markdown("""
+    <h2>
+        <span style="color: #2874A6; font-weight: bold; font-size: 24px;">Please add your Minato Key</span>
+    </h2>
+    """, unsafe_allow_html=True)
+    
+        api_key = st.text_input("Enter your Minato Key", type="password")
+        if api_key:
+            st.session_state["api_key"] = api_key
+        else:
+            st.warning("Please enter your Minato Key.")
+            
+            
     col1, col2 = st.columns(2)
 
     with col1:

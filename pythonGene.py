@@ -390,11 +390,11 @@ if __name__ == "__main__":
     
     
 # ---- HIDE STREAMLIT STYLE ----
-hide_st_style = """
-            <style>
+#hide_st_style = """
+ #           <style>
             #MainMenu {visibility: visible;}
-            footer {visibility: hidden;}
-            header {visibility: visible;}
-            </style>
-            """
-st.markdown(hide_st_style, unsafe_allow_html=True)
+    #        footer {visibility: hidden;}
+   #         header {visibility: visible;}
+    #        </style>
+   #         """
+#.       st.markdown(hide_st_style, unsafe_allow_html=True)

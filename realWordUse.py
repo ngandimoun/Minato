@@ -608,8 +608,8 @@ def main():
         
         
     # Initialize session state for chat history
-    if 'chat_history' not in st.session_state:
-        st.session_state['chat_history'] = []
+  #  if 'chat_history' not in st.session_state:
+   #     st.session_state['chat_history'] = []
         
                        
     def on_rm_error(func, path, exc_info):

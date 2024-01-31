@@ -854,14 +854,14 @@ def main():
     if 'response' in st.session_state and st.session_state.response:
         st.markdown(f"*Minato:*\n{st.session_state.response}")
         
-    with st.expander("Chat History"):
+   # with st.expander("Chat History"):
 
-        for chat in st.session_state.chat_history:
-            st.markdown(chat['question'], unsafe_allow_html=True)
-            st.markdown(chat['answer'], unsafe_allow_html=True)
+   #     for chat in st.session_state.chat_history:
+    #        st.markdown(chat['question'], unsafe_allow_html=True)
+   #         st.markdown(chat['answer'], unsafe_allow_html=True)
 
-        if st.button("Clear History", key="clear_history_button"):
-            st.session_state.chat_history = []
+    #    if st.button("Clear History", key="clear_history_button"):
+    #        st.session_state.chat_history = []
             
             
             

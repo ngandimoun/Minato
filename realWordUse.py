@@ -182,7 +182,7 @@ def generate_problems(difficulty, code_context):
             model="gpt-3.5-turbo-instruct",
             prompt=combined_prompt,
             temperature=0.6,
-            max_tokens=150,
+            max_tokens=200,
             top_p=1,
             frequency_penalty=0,
             presence_penalty=0,
@@ -230,7 +230,7 @@ def generate_task(code_context, task):
             model="gpt-3.5-turbo-instruct",
             prompt=combined_prompt,
             temperature=0.5,
-            max_tokens=250,
+            max_tokens=200,
             top_p=1,
             frequency_penalty=0,
             presence_penalty=0,
@@ -287,7 +287,7 @@ def generate_documentation(code_context):
             model="gpt-3.5-turbo-instruct",
             prompt=combined_prompt,
             temperature=0.6,
-            max_tokens=700,
+            max_tokens=600,
             top_p=1,
             frequency_penalty=0,
             presence_penalty=0,
@@ -691,22 +691,31 @@ def main():
         st_ace.st_ace(repo_structure, language='text', theme='github', height=300)
 
 
-    
 
-    # Recursive function to list all files in a directory and its subdirectories
     def list_files_recursively(directory):
         all_files = []
         for root, _, files in os.walk(directory):
             for file in files:
-                all_files.append(os.path.join(root, file))
+                if not is_image_or_video(file):
+                    all_files.append(os.path.join(root, file))
         return all_files
 
-    if 'current_path' not in st.session_state:
-        st.session_state['current_path'] = destination
+    def is_image_or_video(file_name):
+        # Define a list of common image and video file extensions
+        image_extensions = ['.jpg', '.jpeg', '.png', '.gif', '.bmp', '.tiff', '.ico', '.otf', '.svg', '.txt', '.rst', '.log', '.cfg', '.conf', '.ini', '.csv']
+        video_extensions = ['.mp4', '.avi', '.mov', '.wmv', '.flv', '.mkv', '.rev', '.idx', '.jsx', '.less', '.scss', '.sass', '.eps', '.ai', '.psd', '.pack', '.webm', '.webp',  '.svgz', '.ttf', '.woff', '.woff2', '.eot', '.mkv']
 
+
+        # Check if the file has an image or video extension
+        file_extension = os.path.splitext(file_name)[1].lower()
+        return file_extension in image_extensions or file_extension in video_extensions
+        
+        
     st.text("STEP 2:Please select the file you want to work with.")
-
-    # Listing all files in the repository
+    
+   # if 'current_path' not in st.session_state:
+   #     st.session_state['current_path'] = destination    
+    # Listing all files in the repository, excluding images and videos
     repo_files = []
     if os.path.exists(destination):
         repo_files = list_files_recursively(destination)
@@ -733,18 +742,21 @@ def main():
 
         
         language_map = {
-        'py': 'python', 'js': 'javascript', 'css': 'css',
-        'cpp': 'cpp', 'dart': 'dart', 'java': 'java',
-        'sol': 'solidity', 'php': 'php', 'cs': 'csharp',
-        'go': 'go', 'rb': 'ruby', 'sql': 'sql',
-        'swift': 'swift', 'kt': 'kotlin', 'html': 'html',
-        'rs': 'rust', 'ts': 'typescript', 'pl': 'perl',
-        'lua': 'lua', 'r': 'r', 'mat': 'matlab',
-        'hs': 'haskell', 'sh': 'shell', 'ml': 'ocaml',
-        'f#': 'fsharp', 'scala': 'scala', 'groovy': 'groovy',
-        'vb': 'visualbasic', 'asm': 'assembly', 'elixir': 'elixir',
-        'erl': 'erlang', 'prolog': 'prolog', 'lisp': 'lisp'
+            'py': 'python', 'js': 'javascript', 'css': 'css',
+            'cpp': 'cpp', 'dart': 'dart', 'java': 'java',
+            'sol': 'solidity', 'php': 'php', 'cs': 'csharp',
+            'go': 'go', 'rb': 'ruby', 'sql': 'sql',
+            'swift': 'swift', 'kt': 'kotlin', 'html': 'html',
+            'rs': 'rust', 'ts': 'typescript', 'pl': 'perl',
+            'lua': 'lua', 'r': 'r', 'mat': 'matlab',
+            'hs': 'haskell', 'sh': 'shell', 'ml': 'ocaml',
+            'f#': 'fsharp', 'scala': 'scala', 'groovy': 'groovy',
+            'vb': 'visualbasic', 'asm': 'assembly', 'elixir': 'elixir',
+            'erl': 'erlang', 'prolog': 'prolog', 'lisp': 'lisp',
+            'vue': 'vue', 'jsx': 'react', 'tsx': 'react_ts',
+            'json': 'json', 'xml': 'xml', 'yaml': 'yaml', 'md': 'markdown'
         }
+
        
         language = language_map.get(file_extension, 'text')
 

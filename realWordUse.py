@@ -90,7 +90,7 @@ def clean_up_solution(solution, task_statement, code_context):
             presence_penalty=0,
         )
 
-        full_response = f"```\n{stream_response.choices[0].text.strip()}\n```"
+        full_response = stream_response.choices[0].text.strip()
         st.markdown(full_response, unsafe_allow_html=True)
 
     except Exception as e:
@@ -121,7 +121,7 @@ def diagnose_solution_issues(solution, task_statement, code_context):
             presence_penalty=0,
         )
 
-        full_response = f"```\n{stream_response.choices[0].text.strip()}\n```"
+        full_response = stream_response.choices[0].text.strip()
         st.markdown(full_response, unsafe_allow_html=True)
 
     except Exception as e:
@@ -155,7 +155,7 @@ def almost_solution_issues(solution, task_statement, code_context):
             presence_penalty=0,
         )
 
-        full_response = f"```\n{stream_response.choices[0].text.strip()}\n```"
+        full_response = stream_response.choices[0].text.strip()
         st.markdown(full_response, unsafe_allow_html=True)
 
     except Exception as e:
@@ -293,9 +293,7 @@ def generate_documentation(code_context):
             presence_penalty=0,
         )
 
-        full_response = f"```\n{stream_response.choices[0].text.strip()}\n```"
-        
-        
+        full_response = stream_response.choices[0].text.strip()
         st.markdown(full_response, unsafe_allow_html=True)
 
     except Exception as e:
@@ -373,7 +371,9 @@ def generate_front(code_context):
             presence_penalty=0,
         )
 
-        full_response = f"```\n{stream_response.choices[0].text.strip()}\n```"
+
+
+        full_response = stream_response.choices[0].text.strip()
         st.markdown(full_response, unsafe_allow_html=True)
 
     except Exception as e:
@@ -411,8 +411,7 @@ def generate_back(code_context):
             presence_penalty=0,
         )
 
-        full_response = f"```\n{stream_response.choices[0].text.strip()}\n```"
-        
+        full_response = stream_response.choices[0].text.strip()
         st.markdown(full_response, unsafe_allow_html=True)
 
     except Exception as e:
@@ -1000,7 +999,6 @@ def main():
 
 if __name__ == "__main__":
     main()
-
 
 
 

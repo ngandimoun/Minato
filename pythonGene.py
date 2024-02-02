@@ -98,30 +98,32 @@ def execute_python_code(code):
 
 
 # Function to diagnose issues in the code
-def diagnose_code_issues(code, problem_statement):
+def diagnose_code_issues(code, problem_statement, sample_input):
     client = get_openai_client()
     if client is None:
-        st.error("No OpenAI API key provided.")
-        return "Error: No OpenAI API key."
+        st.error("No Minato Keys provided.")
+        return "Error: No Minato Keys."
 
     if not code or not problem_statement:
         return "Code or problem statement is missing."
 
-    combined_prompt = f"Problem Statement: {problem_statement}\n\nPython Code:\n{code}\n\nDiagnose any issues with the code and explain them:"
+    combined_prompt = f"Based of Problem Statement: {problem_statement} and Sample input: {sample_input} \n\nPython Code:\n{code}\n\nDiagnose any issues with the code and explain them:"
 
     try:
         stream_response = client.completions.create(
             model="gpt-3.5-turbo-instruct",
             prompt=combined_prompt,
             temperature=0.6,
-            max_tokens=150,
+            max_tokens=250,
             top_p=1,
             frequency_penalty=0,
             presence_penalty=0,
         )
-
-        full_response = f"```python\n{stream_response.choices[0].text.strip()}\n```"
+        
+        
+        full_response = stream_response.choices[0].text.strip()
         st.markdown(full_response, unsafe_allow_html=True)
+
 
     except Exception as e:
         st.error(f"An error occurred: {e}")
@@ -129,23 +131,23 @@ def diagnose_code_issues(code, problem_statement):
 
 
 # Function to clean up the code
-def clean_up_code(code, problem_statement):
+def clean_up_code(problem_statement, sample_input):
     client = get_openai_client()
     if client is None:
-        st.error("No OpenAI API key provided.")
-        return "Error: No OpenAI API key."
+        st.error("No Minato Keys provided.")
+        return "Error: No Minato Keys."
 
-    if not code or not problem_statement:
+    if not problem_statement:
         return "Code or problem statement is missing."
 
-    combined_prompt = f"Problem Statement: {problem_statement}\n\nPython Code:\n{code}\n\nRefactor the code to make it cleaner and more efficient:"
+    combined_prompt = f"Based of Problem Statement: {problem_statement} and the Sample Input: {sample_input}\n\nGive a python solution with some explanations"
 
     try:
         stream_response = client.completions.create(
             model="gpt-3.5-turbo-instruct",
             prompt=combined_prompt,
             temperature=0.6,
-            max_tokens=300,
+            max_tokens=500,
             top_p=1,
             frequency_penalty=0,
             presence_penalty=0,
@@ -167,7 +169,7 @@ def generate_challenge(difficulty, topic):
 
     client = get_openai_client()
     if client is None:
-        st.error("No OpenAI API key provided.")
+        st.error("No Minato Keys provided.")
         return
 
     combined_prompt = f"Create a {difficulty} level Python challenge related to {topic}. " \
@@ -234,6 +236,8 @@ def main():
             st.session_state["api_key"] = api_key
         else:
             st.warning("Please enter your Minato Key.")
+            
+    st.caption('More  :blue[Programming] _Languages_  are coming soon :sunglasses:')
 
     col1, col2 = st.columns(2)
 
@@ -252,25 +256,26 @@ def main():
         python_topics = [
             # Fundamentals
             "Math Operations", "Data Structures", "String Manipulation", "Array Manipulation",
-            "File I/O", "Error Handling", "Regular Expressions",
+            "Error Handling", "Regular Expressions",
 
             # Intermediate Concepts
-            "Decorators in Python", "Generators and Iterators", "Context Managers",
+            #"Decorators in Python", "Generators and Iterators", "Context Managers",
             "Lambda Functions", "List Comprehensions", "Exception Handling",
 
             # Advanced Python Topics
             "Algorithms", "Binary Search", "Functional Programming", "Object-Oriented Programming",
-            "Concurrency with asyncio", #"Testing with PyTest", 
-            "Network Programming",
-            "Metaprogramming", "Memory Management", "Python C Extensions",
+            #"Concurrency with asyncio", #"Testing with PyTest", 
+            #"Network Programming",
+            #"Metaprogramming", #"Memory Management", "Python C Extensions",
 
             # Web Development
            # "Web Scraping", # "Web Development with Flask/Django", "API Development",
            # "Template Engines (Jinja2)", #"WSGI and ASGI Concepts",
 
             # Data Analysis and Visualization
-            "Data Analysis with Pandas", "Data Cleaning", "Data Visualization with Matplotlib",
-            "Data Manipulation with SQLAlachemy", "Advanced Data Visualization with Seaborn",
+            #"Data Analysis with Pandas",
+            #"Data Cleaning",# "Data Visualization with Matplotlib",
+            #"Data Manipulation with SQLAlachemy", "Advanced Data Visualization with Seaborn",
 
             # Application and Scripting
          #   "Automation Scripts",# "GUI Development with Tkinter", 
@@ -337,7 +342,7 @@ def main():
                 
                 
         # ACE editor
-        code = st_ace.st_ace(language='python', keybinding=keybinding, theme=theme, placeholder="Write your code here...", height=350, key='code')
+        code = st_ace.st_ace(language='python', keybinding=keybinding, theme=theme, placeholder="Write your code here...", height=400, key='code')
 
 
 
@@ -372,13 +377,15 @@ def main():
         # Display diagnosis if 'What's wrong with my code?' button was clicked
         if diagnose_clicked:
             problem_statement = st.session_state.get('challenge', '')
-            diagnosis = diagnose_code_issues(code, problem_statement)
+            sample_input = st.session_state.get('challenge', '')
+            diagnosis = diagnose_code_issues(code, problem_statement, sample_input)
             #st.text_area("Diagnosis:", diagnosis, height=150)
 
         # Display cleaned code if 'Make my code clean' button was clicked
         if clean_clicked:
             problem_statement = st.session_state.get('challenge', '')
-            cleaned_code = clean_up_code(code, problem_statement)
+            sample_input = st.session_state.get('challenge', '')
+            cleaned_code = clean_up_code(problem_statement, sample_input)
             #st.text_area("Cleaned Code:", cleaned_code, height=150)
 
 

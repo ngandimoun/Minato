@@ -48,9 +48,8 @@ def show_about_us():
         🔥 **<span class="highlight">Minato Boasts Four Key Features:</span>**
         
         1. **🔍 Software Assistant**: Providing answers to a wide array of computer science questions.
-        2. **🧩 Problem Sections**: Delve into various computer software challenges, honing your skills across different topics and programming languages.
-        3. **🐍 Python Problems**: Focused on pivotal Python problems, crucial for acing technical interviews and skill enhancement.
-        4. **💻 Real-world Cases**: Immerse in real codebases and open-source projects for an authentic experience, priming you for the tech world.
+        2. **🐍 Python Problems**: Focused on pivotal Python problems, crucial for acing technical interviews and skill enhancement.
+        3. **💻 Real-world Cases**: Immerse in real codebases and open-source projects for an authentic experience, priming you for the tech world.
         
         Ready to level up your coding game with Minato? Let's embark on this <span class="highlight">exciting coding adventure</span> together!
         

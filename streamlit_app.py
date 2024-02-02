@@ -97,7 +97,7 @@ st.markdown(sidebar_style, unsafe_allow_html=True)
 
 # Sidebar for navigation
 st.sidebar.title('🧭 Navigation')
-options = st.sidebar.radio('Go to', ['🏠 Home', '🛠️ Software Assistant', '💻 Computer Problems', '🐍 Python Problems', '🌐 Real World Case'])
+options = st.sidebar.radio('Go to', ['🏠 Home', '🛠️ Software Assistant', '🐍 Python Problems', '🌐 Real World Case'])
 
 st.sidebar.write("Close the navigation sidebar for a better viewing experience.")
 
@@ -107,9 +107,6 @@ if options == '🏠 Home':
 
 elif options == '🛠️ Software Assistant':
     load_app('softwareaasistant.py')
-
-elif options == '💻 Computer Problems':
-    load_app('question.py')
 
 elif options == '🐍 Python Problems':
     load_app('pythonGene.py')

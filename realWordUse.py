@@ -68,23 +68,23 @@ def get_openai_client():
 
 
 # Function to clean up the code
-def clean_up_solution(solution, task_statement, code_context):
+def clean_up_solution(explanation_output, code_context):
     client = get_openai_client()
     if client is None:
         st.error("No Minato Key provided.")
         return "Error: No Minato Key."
 
-    if not solution or not task_statement:
+    if not explanation_output:
         return "Solution or question statement is missing."
 
-    combined_prompt = f"Based of this {code_context} , Task Statement: {task_statement}\n\nSolution:\n{solution}\n\nRefactor the solution to enhance its cleanliness and efficiency:"
+    combined_prompt = f"Based of this {code_context} , and {explanation_output}\n\nGive a solution:"
 
     try:
         stream_response = client.completions.create(
             model="gpt-3.5-turbo-instruct",
             prompt=combined_prompt,
             temperature=0.6,
-            max_tokens=300,
+            max_tokens=600,
             top_p=1,
             frequency_penalty=0,
             presence_penalty=0,
@@ -99,23 +99,23 @@ def clean_up_solution(solution, task_statement, code_context):
 
 
 # Function to diagnose issues in the code
-def diagnose_solution_issues(solution, task_statement, code_context):
+def diagnose_solution_issues(solution, explanation_output, code_context):
     client = get_openai_client()
     if client is None:
         st.error("No Minato key provided.")
         return "Error: No Minato  key."
 
-    if not solution or not task_statement:
+    if not solution or not explanation_output:
         return "Solution or Question statement is missing."
 
-    combined_prompt = f"Based of this {code_context}, Task Statement: {task_statement}\n\nSolution:\n{solution}\n\nDiagnose any issues present in the solution and provide explanations for them:"
+    combined_prompt = f"Based of this {code_context}, and {explanation_output}\n\nSolution:\n{solution}\n\nDiagnose any issues present in the solution and provide explanations for them:"
 
     try:
         stream_response = client.completions.create(
             model="gpt-3.5-turbo-instruct",
             prompt=combined_prompt,
             temperature=0.6,
-            max_tokens=150,
+            max_tokens=250,
             top_p=1,
             frequency_penalty=0,
             presence_penalty=0,
@@ -133,23 +133,23 @@ def diagnose_solution_issues(solution, task_statement, code_context):
 
 
 # Function to give almost solution
-def almost_solution_issues(solution, task_statement, code_context):
+def almost_solution_issues(solution, explanation_output, code_context):
     client = get_openai_client()
     if client is None:
         st.error("No Minato Key provided.")
         return "Error: No Minato Key."
 
-    if not solution or not task_statement:
+    if not solution or not explanation_output:
         return "Solution or question statement or selected_files_paths  is missing."
 
-    combined_prompt = f"Based of this: {code_context} ,  Task Statement: {task_statement}\n\nSolution:\n{solution}\n\nEvaluate the solution to determine if it is nearly correct. Provide guidance on what steps to take next :"
+    combined_prompt = f"Based of this: {code_context} ,  and: {explanation_output}\n\nSolution:\n{solution}\n\nEvaluate the solution to determine if it is nearly correct. Provide guidance on what steps to take next :"
 
     try:
         stream_response = client.completions.create(
             model="gpt-3.5-turbo-instruct",
             prompt=combined_prompt,
             temperature=0.6,
-            max_tokens=150,
+            max_tokens=250,
             top_p=1,
             frequency_penalty=0,
             presence_penalty=0,
@@ -447,8 +447,9 @@ def generate_query_response(user_query, code_context):
         # Format the response
         #formatted_response = format_response(response.choices[0].text.strip(), language)
         
-        full_response = f"```\n{response.choices[0].text.strip()}\n```"
-             
+        #full_response = f"```\n{response.choices[0].text.strip()}\n```"
+        full_response = response.choices[0].text.strip()
+        #st.markdown(full_response, unsafe_allow_html=True)             
    
         return full_response
     except Exception as e:
@@ -578,6 +579,10 @@ def main():
         }
         </style>
     """, unsafe_allow_html=True)
+
+    # Initialize session state for chat history
+    if 'chat_history' not in st.session_state:
+        st.session_state['chat_history'] = []
 
     with st.expander("Configuration"):
         # Additional section for Discord and Email
@@ -853,14 +858,14 @@ def main():
     if 'response' in st.session_state and st.session_state.response:
         st.markdown(f"*Minato:*\n{st.session_state.response}")
         
-   # with st.expander("Chat History"):
+    with st.expander("Chat History"):
 
-   #     for chat in st.session_state.chat_history:
-    #        st.markdown(chat['question'], unsafe_allow_html=True)
-   #         st.markdown(chat['answer'], unsafe_allow_html=True)
+        for chat in st.session_state.chat_history:
+            st.markdown(chat['question'], unsafe_allow_html=True)
+            st.markdown(chat['answer'], unsafe_allow_html=True)
 
-    #    if st.button("Clear History", key="clear_history_button"):
-    #        st.session_state.chat_history = []
+        if st.button("Clear History", key="clear_history_button"):
+            st.session_state.chat_history = []
             
             
             
@@ -980,20 +985,20 @@ def main():
         # Display output if 'Almost Solution' button was clicked
         if almost_clicked:
 
-            task_statement = st.session_state.get('task', '')
-            almost = almost_solution_issues(solution, task_statement, code_context)
+            explanation_output = st.session_state.get('task', '')
+            almost = almost_solution_issues(solution, explanation_output, code_context)
             
         # Display diagnosis if 'What's wrong with my solution?' button was clicked
         
         if diagnose_clicked:
-            task_statement = st.session_state.get('task', '')
-            diagnosis = diagnose_solution_issues(solution, task_statement, code_context)
+            explanation_output = st.session_state.get('task', '')
+            diagnosis = diagnose_solution_issues(solution, explanation_output, code_context)
             
 
         # Display cleaned code if 'Make my solution clean' button was clicked
         if clean_clicked:
-            task_statement = st.session_state.get('task', '')
-            cleaned_solution = clean_up_solution(solution, task_statement, code_context)
+            explanation_output = st.session_state.get('task', '')
+            cleaned_solution = clean_up_solution(explanation_output, code_context)
             
   
 

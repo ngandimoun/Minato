@@ -131,7 +131,7 @@ def diagnose_code_issues(code, problem_statement, sample_input):
 
 
 # Function to clean up the code
-def clean_up_code(problem_statement, sample_input):
+def clean_up_code(problem_statement, code):
     client = get_openai_client()
     if client is None:
         st.error("No Minato Keys provided.")
@@ -140,7 +140,7 @@ def clean_up_code(problem_statement, sample_input):
     if not problem_statement:
         return "Code or problem statement is missing."
 
-    combined_prompt = f"Based of Problem Statement: {problem_statement} and the Sample Input: {sample_input}\n\nGive a python solution with some explanations"
+    combined_prompt = f"Based of Problem Statement: {problem_statement}, make the code: {code} a clean code"
 
     try:
         stream_response = client.completions.create(
@@ -384,8 +384,8 @@ def main():
         # Display cleaned code if 'Make my code clean' button was clicked
         if clean_clicked:
             problem_statement = st.session_state.get('challenge', '')
-            sample_input = st.session_state.get('challenge', '')
-            cleaned_code = clean_up_code(problem_statement, sample_input)
+            #sample_input = st.session_state.get('challenge', '')
+            cleaned_code = clean_up_code(problem_statement, code)
             #st.text_area("Cleaned Code:", cleaned_code, height=150)
 
 

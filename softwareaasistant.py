@@ -85,10 +85,13 @@ def is_computer_science_related(question):
     # List of keywords related to computer science  
     
     cs_keywords = [
-    
+        'sample code', 'example code', 'prototype code', 'demonstration code', 'model code', 'illustrative code', 'template code', 'reference code', 'trial code', 'test code', 'experimental code', 'demo code', 
         # Package Managers and Environments
         "pip", "conda", "anaconda", "virtualenv", "docker-compose", "yarn", "vagrant",
-
+            'technology', 'innovation', 'engineering', 'science', 'electronics', 'informatics', 'computing', 'digitalization', 'automation', 'mechanization', 'telecommunications', 'cybernetics', 'robotics', 'biotechnology', 'nanotechnology', 'IT (Information Technology)', 'ICT (Information and Communication Technology)', 'computerization', 'software', 'hardware', 'internet', 'networking', 'data science', 'artificial intelligence', 'machine learning', 'virtual reality', 'augmented reality', 'cloud computing', 'smart technology',
+        'previous', 'prior', 'former', 'earlier', 'preceding', 'antecedent', 'past', 'previously mentioned', 'aforementioned', 'afore', 'prior to', 'earlier on',
+        'next', 'forthcoming', 'ensuing', 'coming up', 'proximate', 'sequential', 'future', 'subsequent', 'after', 'coming after', 'successive',
+        
         # Operating Systems and Servers
         "linux", "server administration", "server management", "ubuntu", "debian",
         "centos", "red hat", "fedora", "windows server", "macos server", "apache", "nginx",

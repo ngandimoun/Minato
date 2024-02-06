@@ -91,6 +91,8 @@ def is_computer_science_related(question):
             'technology', 'innovation', 'engineering', 'science', 'electronics', 'informatics', 'computing', 'digitalization', 'automation', 'mechanization', 'telecommunications', 'cybernetics', 'robotics', 'biotechnology', 'nanotechnology', 'IT (Information Technology)', 'ICT (Information and Communication Technology)', 'computerization', 'software', 'hardware', 'internet', 'networking', 'data science', 'artificial intelligence', 'machine learning', 'virtual reality', 'augmented reality', 'cloud computing', 'smart technology',
         'previous', 'prior', 'former', 'earlier', 'preceding', 'antecedent', 'past', 'previously mentioned', 'aforementioned', 'afore', 'prior to', 'earlier on',
         'next', 'forthcoming', 'ensuing', 'coming up', 'proximate', 'sequential', 'future', 'subsequent', 'after', 'coming after', 'successive',
+
+        'quantitative finance', 'financial engineering', 'quantitative analysis', 'mathematical finance', 'computational finance', 'quant finance', 'financial mathematics', 'algorithmic finance', 'derivatives pricing', 'risk modeling', 'quantitative modeling', 'quantitative trading', 'financial analytics', 'quantitative research',
         
         # Operating Systems and Servers
         "linux", "server administration", "server management", "ubuntu", "debian",

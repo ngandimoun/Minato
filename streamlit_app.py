@@ -5,6 +5,18 @@ def load_app(app_name):
         exec(app_file.read(), globals())
 
 def show_about_us():
+
+    st.markdown(
+        """
+            <!-- Global site tag (gtag.js) - Google Analytics -->
+            <script async src="https://www.googletagmanager.com/gtag/js?id=G-7KVNS7J863"></script>
+            <script>
+                window.dataLayer = window.dataLayer || [];
+                function gtag(){dataLayer.push(arguments);}
+                gtag('js', new Date());
+                gtag('config', 'G-7KVNS7J863');
+            </script>
+        """, unsafe_allow_html=True)
     st.markdown(
         """
         <style>
@@ -94,17 +106,7 @@ st.set_page_config(layout="wide")
 st.markdown(sidebar_style, unsafe_allow_html=True)
 
 
-st.markdown(
-    """
-        <!-- Global site tag (gtag.js) - Google Analytics -->
-        <script async src="https://www.googletagmanager.com/gtag/js?id=G-7KVNS7J863"></script>
-        <script>
-            window.dataLayer = window.dataLayer || [];
-            function gtag(){dataLayer.push(arguments);}
-            gtag('js', new Date());
-            gtag('config', 'G-7KVNS7J863');
-        </script>
-    """, unsafe_allow_html=True)
+
 
 # Sidebar for navigation
 st.sidebar.title('🧭 Navigation')

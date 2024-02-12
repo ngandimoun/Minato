@@ -40,9 +40,9 @@ def show_about_us():
         
         ---
         
-        🚀 <span class="highlight">**Meet Minato**</span>: Your Ultimate AI Sidekick in Computer Science! 🌐
+        🚀 <span class="highlight">**Meet Minato.ai**</span>: Your Ultimate AI Sidekick in Computer Science! 🌐
         
-        - [🤑 <span class="highlight">Get Minato Free Credit</span>](https://discord.gg/pNvPGqWfyX)
+        - [🤑 <span class="highlight">Get Minato Free Keys</span>](https://discord.gg/pNvPGqWfyX)
 
         - [💬 <span class="highlight">Have Questions About Minato? Ask Here</span>](https://discord.gg/pNvPGqWfyX)      
         ---
@@ -65,7 +65,7 @@ def show_about_us():
         
         **🎯 <span class="important">What Sets Minato Apart?</span>**
         
-        Minato is not just a tool; it's a companion. Designed by developers for developers, and future coding rockstars, Minato is here to make your coding journey not just informative but **thrilling, engaging, and downright awesome**.
+        Minato.ai is not just a tool; it's a companion. Designed by developers for developers, and future coding rockstars, Minato is here to make your coding journey not just informative but **thrilling, engaging, and downright awesome**.
         
         🔥 **<span class="highlight">Minato Boasts Four Key Features:</span>**
         

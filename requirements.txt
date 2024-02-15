@@ -9,7 +9,7 @@ plotly
 html5lib
 json5
 subprocess32
-mimetypes2
+
 pytimeparse
 shutilwhich
 stat-utils

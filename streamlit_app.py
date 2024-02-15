@@ -1,23 +1,5 @@
 import streamlit as st
 
-def inject_ga():
-    GA_ID = "google_analytics"
-
-
-    GA_JS = """
-    <!-- Global site tag (gtag.js) - Google Analytics -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-7KVNS7J863"></script>
-    <script>
-        window.dataLayer = window.dataLayer || [];
-        function gtag(){dataLayer.push(arguments);}
-        gtag('js', new Date());
-
-        gtag('config', 'G-7KVNS7J863');
-    </script>
-    """
-
-
-inject_ga()
 
 
 def load_app(app_name):

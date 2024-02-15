@@ -1,7 +1,6 @@
 streamlit
 streamlit-ace
 openai
-langchain
 pandas
 numpy
 matplotlib
@@ -16,7 +15,6 @@ pickle-mixin
 pathlib2
 GitPython
 regex
-
 requests
 lxml
 pytest
@@ -27,4 +25,4 @@ PyOpenGL
 selenium
 PyAutoGUI
 python-dotenv
-pip
+

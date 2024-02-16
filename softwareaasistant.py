@@ -1,79 +1,32 @@
-
+# Import necessary libraries
 import openai
-from openai import OpenAI
 import streamlit as st
-
 import os
 import shelve
 
-
-with st.expander("Configuration"):
-    # Additional section for Discord and Email
-    st.markdown("""
-        - [🤑 Get Minato Free Credit](https://discord.gg/pNvPGqWfyX)
-
-    """)
-    
-    st.markdown("""
-<h2>
-    <span style="color: #2874A6; font-weight: bold; font-size: 24px;">Please add your Minato Key</span>
-</h2>
-""", unsafe_allow_html=True)
-
-    api_key = st.text_input("Enter your Minato Key", type="password")
-    if api_key:
-        st.session_state["api_key"] = api_key
-    else:
-        st.warning("Please enter your Minato Key.")
-
-st.markdown("""
-<h2>
-<span style="color: #2874A6; font-weight: bold; font-size: 24px;">Stuck with Software related question?</span>
-</h2>
-""", unsafe_allow_html=True)
-
-
-
-    
+# Define avatars for user and bot
 USER_AVATAR = "👨🏽‍💻"
 BOT_AVATAR = "☯️"
 
-
-# Define the function to get the OpenAI client
+# Function to retrieve OpenAI client using the API key
 def get_openai_client():
-    # Replace 'YOUR_OPENAI_API_KEY' with your actual Minato Key
-
-    openai.api_key = os.getenv('OPENAI_API_KEY')
-    return openai
-
-
-
-# OpenAI client setup
-
-def get_openai_client():
-    """
-    Create an OpenAI client using the API key provided by the user.
-    """
     api_key = st.session_state.get("api_key")
     if api_key:
         return openai.Client(api_key=api_key)
     else:
         return None
-        
 
+# Set up OpenAI client
 client = get_openai_client()
 
-
-# Ensure openai_model is initialized in session state
+# Ensure the openai_model is initialized in session state
 if "openai_model" not in st.session_state:
     st.session_state["openai_model"] = "gpt-3.5-turbo"
-
 
 # Load chat history from shelve file
 def load_chat_history():
     with shelve.open("chat_history") as db:
         return db.get("messages", [])
-
 
 # Save chat history to shelve file
 def save_chat_history(messages):
@@ -81,14 +34,20 @@ def save_chat_history(messages):
         db["messages"] = messages
 
 # Function to check if the question is related to computer science
+#Customized for bespoke software engineering
+
 def is_computer_science_related(question):
-    # List of keywords related to computer science  
-    
     cs_keywords = [
-        'sample code', 'example code', 'prototype code', 'demonstration code', 'model code', 'illustrative code', 'template code', 'reference code', 'trial code', 'test code', 'experimental code', 'demo code', 
+        # List of computer science keywords
+        # ...
+    
+        # Code-related keywords
+        'sample code', 'example code', 'prototype code', 'demonstration code', 'model code', 'illustrative code', 'template code', 'reference code', 'trial code', 'test code', 'experimental code', 'demo code',
         # Package Managers and Environments
         "pip", "conda", "anaconda", "virtualenv", "docker-compose", "yarn", "vagrant",
-            'technology', 'innovation', 'engineering', 'science', 'electronics', 'informatics', 'computing', 'digitalization', 'automation', 'mechanization', 'telecommunications', 'cybernetics', 'robotics', 'biotechnology', 'nanotechnology', 'IT (Information Technology)', 'ICT (Information and Communication Technology)', 'computerization', 'software', 'hardware', 'internet', 'networking', 'data science', 'artificial intelligence', 'machine learning', 'virtual reality', 'augmented reality', 'cloud computing', 'smart technology',
+        # General computer science keywords
+        'technology', 'innovation', 'engineering', 'science', 'electronics', 'informatics', 'computing', 'digitalization', 'automation', 'mechanization', 'telecommunications', 'cybernetics', 'robotics', 'biotechnology', 'nanotechnology', 'IT (Information Technology)', 'ICT (Information and Communication Technology)', 'computerization', 'software', 'hardware', 'internet', 'networking', 'data science', 'artificial intelligence', 'machine learning', 'virtual reality', 'augmented reality', 'cloud computing', 'smart technology',
+    
         'previous', 'prior', 'former', 'earlier', 'preceding', 'antecedent', 'past', 'previously mentioned', 'aforementioned', 'afore', 'prior to', 'earlier on',
         'next', 'forthcoming', 'ensuing', 'coming up', 'proximate', 'sequential', 'future', 'subsequent', 'after', 'coming after', 'successive',
 
@@ -403,25 +362,55 @@ def is_computer_science_related(question):
 
         # Domain-specific Applications
         "bioinformatics", "geoinformatics", "financial technology", "fintech"
+           
+    
     ]
-
-    
-    
-    
-    
-    
     return any(keyword.lower() in question.lower() for keyword in cs_keywords)
 
 # Initialize or load chat history
 if "messages" not in st.session_state:
     st.session_state.messages = load_chat_history()
 
-# Sidebar with a button to delete chat history
+
+
+# Set company name for Streamlit app title
+#company_name = 'Your Very Long Company Name'
+
+# Set title with custom font color using markdown
+#font_color = '#FF5733'
+#st.markdown(f"<h1 style='text-align: center; font-size: 24px; color: {font_color};'>{company_name}</h1>", unsafe_allow_html=True)
+
+
+
+
+# Configuration expander with Discord and Email links
+with st.expander("Configuration"):
+    st.markdown("- [🤑 Get Minato Free Credit](https://discord.gg/pNvPGqWfyX)")
+
+    st.markdown("""
+        <h2>
+            <span style="color: #2874A6; font-weight: bold; font-size: 24px;">Please add your Minato Key</span>
+        </h2>
+    """, unsafe_allow_html=True)
+
+    api_key = st.text_input("Enter your Minato Key", type="password")
+    if api_key:
+        st.session_state["api_key"] = api_key
+    else:
+        st.warning("Please enter your Minato Key.")
+
+# Section for asking software-related questions
+st.markdown("""
+    <h2>
+        <span style="color: #2874A6; font-weight: bold; font-size: 24px;">Stuck with Software related question?</span>
+    </h2>
+""", unsafe_allow_html=True)
+
+# Expander to delete chat history
 with st.expander("Chat History"):
     if st.button("Delete Chat History"):
         st.session_state.messages = []
         save_chat_history([])
-  
 
 # Display chat messages
 for message in st.session_state.messages:
@@ -454,8 +443,5 @@ if prompt := st.chat_input("Ask Minato, your Software Questions??"):
             st.markdown(non_cs_response)
             st.session_state.messages.append({"role": "assistant", "content": non_cs_response})
 
-
-# Save chat history after each interaction
+#Save chat history after each interaction
 #save_chat_history(st.session_state.messages)
-
-

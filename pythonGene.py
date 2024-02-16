@@ -21,42 +21,16 @@ def get_openai_client():
     return openai
 
 
-
-# OpenAI client setup
-
-def get_openai_client():
-    """
-    Create an OpenAI client using the API key provided by the user.
-    """
-    api_key = st.session_state.get("api_key")
-    if api_key:
-        return openai.Client(api_key=api_key)
-    else:
-        return None
-        
-
-
+#function to exect python code
 def execute_python_code(code):
-
+    # List of allowed libraries for the executed code
     allowed_libraries = [
         'pandas',  # Data Analysis
         'numpy',  # Scientific Computing, Array Manipulation
         'matplotlib',  # Data Visualization
-        #'scipy',  # Scientific Computing, used with NumPy
-        #'flask',  # Web Development
-        #'django',  # Web Development
         'requests',  # API Development, Web Scraping
-
-       # 'lxml',  # Web Scraping, Parsing XML and HTML
-       # 'pytest',  # Testing
         'asyncio',  # Concurrency
         'aiohttp',  # Asynchronous HTTP Client/Server
-      #  'tkinter',  # GUI Development (note: it's a standard library, so it might not need to be in this list)
-       # 'pygame',  # Game Development
-      #  'pyqt5',  # GUI Development
-        #'pyopengl',  # Game Development, Graphics
-
-     #   'pyautogui',  # GUI Automation
         're',  # Regular Expressions (note: it's a standard library)
         'socket',  # Network Programming (note: it's a standard library)
         'os',  # File I/O, Operating System Interaction (note: it's a standard library)
@@ -94,10 +68,10 @@ def execute_python_code(code):
 
     return output.getvalue()
 
+#define global model 
+model="gpt-3.5-turbo-instruct"
 
-
-
-# Function to diagnose issues in the code
+# Function to diagnose issues in the user code
 def diagnose_code_issues(code, problem_statement, sample_input):
     client = get_openai_client()
     if client is None:
@@ -111,7 +85,7 @@ def diagnose_code_issues(code, problem_statement, sample_input):
 
     try:
         stream_response = client.completions.create(
-            model="gpt-3.5-turbo-instruct",
+            model=model,
             prompt=combined_prompt,
             temperature=0.6,
             max_tokens=250,
@@ -130,8 +104,9 @@ def diagnose_code_issues(code, problem_statement, sample_input):
         return f"Error: {e}"
 
 
-# Function to clean up the code
-def clean_up_code(problem_statement, code):
+# Function to give a  clean code solution
+
+def clean_up_code(problem_statement, sample_input):
     client = get_openai_client()
     if client is None:
         st.error("No Minato Keys provided.")
@@ -140,11 +115,12 @@ def clean_up_code(problem_statement, code):
     if not problem_statement:
         return "Code or problem statement is missing."
 
-    combined_prompt = f"Based of Problem Statement: {problem_statement}, make the code: {code} a clean code"
+
+    combined_prompt = f"Based of Problem Statement: {problem_statement} and sample input example input: {sample_input} \n\nPython\n\nGive a clean code solution and Include sample input example:\n{sample_input}:"
 
     try:
         stream_response = client.completions.create(
-            model="gpt-3.5-turbo-instruct",
+            model=model,
             prompt=combined_prompt,
             temperature=0.6,
             max_tokens=500,
@@ -177,7 +153,7 @@ def generate_challenge(difficulty, topic):
 
     try:
         stream_response = client.completions.create(
-            model="gpt-3.5-turbo-instruct",
+            model=model,
             prompt=combined_prompt,
             temperature=0.6,
             max_tokens=300,
@@ -218,6 +194,16 @@ def generate_challenge(difficulty, topic):
 # Main function for the Streamlit app
 def main():
     #st.set_page_config(layout="wide")
+    
+    # Set company name for Streamlit app title
+    #company_name = 'Your Very Long Company Name'
+
+    # Set title with custom font color using markdown
+    #font_color = '#FF5733'
+    #st.markdown(f"<h1 style='text-align: center; font-size: 24px; color: {font_color};'>{company_name}</h1>", unsafe_allow_html=True)
+
+
+
     with st.expander("Configuration"):
         # Additional section for Discord and Email
         st.markdown("""
@@ -264,22 +250,7 @@ def main():
 
             # Advanced Python Topics
             "Algorithms", "Binary Search", "Functional Programming", "Object-Oriented Programming",
-            #"Concurrency with asyncio", #"Testing with PyTest", 
-            #"Network Programming",
-            #"Metaprogramming", #"Memory Management", "Python C Extensions",
 
-            # Web Development
-           # "Web Scraping", # "Web Development with Flask/Django", "API Development",
-           # "Template Engines (Jinja2)", #"WSGI and ASGI Concepts",
-
-            # Data Analysis and Visualization
-            #"Data Analysis with Pandas",
-            #"Data Cleaning",# "Data Visualization with Matplotlib",
-            #"Data Manipulation with SQLAlachemy", "Advanced Data Visualization with Seaborn",
-
-            # Application and Scripting
-         #   "Automation Scripts",# "GUI Development with Tkinter", 
-         #   "Game Development with Pygame",
             "Scripting with Python", "Building Command Line Interfaces",
 
             # Scientific and Numeric Computing
@@ -288,22 +259,20 @@ def main():
 
             # Blockchain and Cryptocurrency
             "Blockchain Fundamentals with Python", "Smart Contracts with Python",
-            "Decentralized Applications (DApps) Development", "Cryptocurrency Data Analysis",
+            
 
             # Cybersecurity
             "Python for Network Security", "Penetration Testing with Python",
-            "Cybersecurity Automation with Python", "Web Application Security Testing",
-            "Cryptographic Techniques in Python", "Incident Response with Python",
+            "Cryptographic Techniques in Python",
 
             # Other
-            "Microservices in Python", "Web Crawling",
-            "Geospatial Analysis with GeoPandas"
+            #"Geospatial Analysis with GeoPandas", "Web Application Security Testing", "Cryptocurrency Data Analysis",
         ]
 
         topic = st.selectbox("Select Topic", python_topics, key='topic')
 
 
-        if st.button("Minato"):
+        if st.button("Generate"):
             generate_challenge(difficulty, topic)
 
         # Display the challenge if it's stored in the session state
@@ -319,8 +288,6 @@ def main():
         <span style="color: #2874A6; font-weight: bold; font-size: 24px;">Python Code Executor</span>
         </h2>
         """, unsafe_allow_html=True)        
-        #code = st_ace.st_ace(language='python', keybinding="vscode", theme='tomorrow_night_blue', height=300, key='code')
-
 
         # Use an expander for theme and editor options
         with st.expander("Customize Editor"):
@@ -359,19 +326,18 @@ def main():
         col_run, col_diagnose, col_clean = st.columns(3)
 
         with col_run:
-            run_clicked = st.button('Run Code')
+            run_clicked = st.button('Run My Code')
 
         with col_diagnose:
-            diagnose_clicked = st.button("Code Checking")
+            diagnose_clicked = st.button("Diagnose My Code")
 
         with col_clean:
-            clean_clicked = st.button("Clean Code")
+            clean_clicked = st.button("Clean Code Solution")
 
         # Display output if 'Run Code' button was clicked
         if run_clicked:
             output = execute_python_code(code)
-
-            
+      
             st.text_area("Output:", output, height=300)
 
         # Display diagnosis if 'What's wrong with my code?' button was clicked
@@ -379,14 +345,14 @@ def main():
             problem_statement = st.session_state.get('challenge', '')
             sample_input = st.session_state.get('challenge', '')
             diagnosis = diagnose_code_issues(code, problem_statement, sample_input)
-            #st.text_area("Diagnosis:", diagnosis, height=150)
+
 
         # Display cleaned code if 'Make my code clean' button was clicked
         if clean_clicked:
             problem_statement = st.session_state.get('challenge', '')
-            #sample_input = st.session_state.get('challenge', '')
-            cleaned_code = clean_up_code(problem_statement, code)
-            #st.text_area("Cleaned Code:", cleaned_code, height=150)
+            sample_input = st.session_state.get('challenge', '')
+            cleaned_code = clean_up_code(problem_statement, sample_input)
+
 
 
 
@@ -396,12 +362,3 @@ if __name__ == "__main__":
     
     
     
-# ---- HIDE STREAMLIT STYLE ----
-#hide_st_style = """
- #           <style>
-            #MainMenu {visibility: visible;}
-    #        footer {visibility: hidden;}
-   #         header {visibility: visible;}
-    #        </style>
-   #         """
-#.       st.markdown(hide_st_style, unsafe_allow_html=True)

@@ -15,5 +15,5 @@ def get_openai_client():
         openai.api_key = api_key
         return openai
     else:
-        st.error("OpenAI API key is not set. Please enter your API key in the configuration.")
+        st.error("Minato key is not set. Please enter your API key in the configuration.")
         return None

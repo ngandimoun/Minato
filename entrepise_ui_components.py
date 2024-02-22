@@ -62,7 +62,7 @@ def main_ui():
     configuration_expander()   
     # Display a warning if the API key is not set
     if "api_key" not in st.session_state or not st.session_state["api_key"]:
-        st.warning("Please enter your OpenAI API key in the Configuration section.")
+        st.warning("Please enter your Minato key in the Configuration section.")
 
     st.markdown("""
     Focus on enhancing an existing <span style="color: #2874A6; font-weight: bold;">Codebase</span> 

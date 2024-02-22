@@ -54,7 +54,7 @@ def main_ui():
     """
     Main function to render the Streamlit UI components, including Git repository operations.
     """
-    st.set_page_config(page_title="AI Code Assistant", layout="wide")
+    #st.set_page_config(page_title="AI Code Assistant", layout="wide")
     st.title("AI Code Assistant")
 
 

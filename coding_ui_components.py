@@ -1,6 +1,6 @@
 import streamlit as st
 import streamlit_ace as st_ace
-from config import USER_AVATAR, BOT_AVATAR, DEFAULT_EDITOR_THEME, DEFAULT_KEYBINDING
+from coding_config import USER_AVATAR, BOT_AVATAR, DEFAULT_EDITOR_THEME, DEFAULT_KEYBINDING
 from code_execution import execute_python_code
 from coding_diagnostics import diagnose_code_issues, clean_up_code
 from coding_challenges import generate_python_challenge

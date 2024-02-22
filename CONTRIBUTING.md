@@ -4,7 +4,7 @@ First off, thank you for considering contributing to the Open Source Chat Applic
 
 ## Code of Conduct
 
-This project and everyone participating in it are governed by the [Open Source Chat Application Code of Conduct](CODE_OF_CONDUCT.md). By participating, you are expected to uphold this code. Please report unacceptable behavior to [email@example.com].
+This project and everyone participating in it are governed by the [Open Source AI for Devs of Conduct](CODE_OF_CONDUCT.md). By participating, you are expected to uphold this code. Please report unacceptable behavior to (https://discord.com/invite/H2EYXp8C)]
 
 ## How Can I Contribute?
 
@@ -16,7 +16,7 @@ There are many ways you can contribute to our project:
 
 ### Reporting Bugs
 
-Bugs are tracked as [GitHub issues](https://github.com/yourusername/open-source-chat-app/issues). Create an issue and include:
+Bugs are tracked as [GitHub issues](https://github.com/ngandimoun/Minato/issues)). Create an issue and include:
 
 - A clear and descriptive title.
 - A detailed description of the problem.
@@ -26,7 +26,7 @@ Bugs are tracked as [GitHub issues](https://github.com/yourusername/open-source-
 
 ### Suggesting Enhancements
 
-Enhancements are also tracked as [GitHub issues](https://github.com/yourusername/open-source-chat-app/issues). When suggesting enhancements, include:
+Enhancements are also tracked as [GitHub issues](https://github.com/ngandimoun/Minato/issues). When suggesting enhancements, include:
 
 - A clear and descriptive title.
 - Detailed explanation of the proposed feature.
@@ -57,15 +57,8 @@ By contributing, you agree that your contributions will be licensed under its MI
 
 ## Questions?
 
-If you have any questions or need further clarification, feel free to reach out to us at [email@example.com].
+If you have any questions or need further clarification, feel free to reach out to us at [(https://discord.com/invite/H2EYXp8C)].
 
-Thank you for contributing to the Open Source Chat Application!
+Thank you for contributing to the Open Source AI for Devs!
 
 
-Customizing the CONTRIBUTING.md
-Code of Conduct: If you have a CODE_OF_CONDUCT.md, link to it. If not, it's a good practice to create one based on a template like Contributor Covenant.
-Contact Information: Replace [email@example.com] with your contact information or that of the project maintainer.
-GitHub Issues and Pull Request Process: Adjust the links to your GitHub issues page and customize the pull request process as necessary.
-License: Ensure the license mentioned matches the project's license (e.g., MIT License).
-Questions: Provide a way for contributors to ask questions, whether it's an email address or a link to a discussion forum.
-Remember to review and adjust this template to fit the specific needs and policies of your project.

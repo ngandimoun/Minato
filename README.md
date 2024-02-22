@@ -24,12 +24,12 @@ Welcome to the OpenSource AI Assistant – the ultimate solution crafted with Py
 Embark on your journey with ease:
 
 ```bash
-git clone [https://github.com/yourgithubusername/opensource-ai-assistant.git](https://github.com/ngandimoun/Minato.git)
+git clone [https://github.com/ngandimoun/Minato.git]
 
 pip install -r requirements.txt
 ```
 
-For a step-by-step guide, our [documentation]([LINK_TO_DOCUMENTATION](https://minato-ai.streamlit.app/)) has everything you need to unleash the full potential of our AI assistant.
+For a step-by-step guide, our [documentation]([https://minato-ai.streamlit.app/]) has everything you need to unleash the full potential of our AI assistant.
 
 ## Real-World Applications 🌍
 
@@ -41,8 +41,8 @@ This journey is not just ours; it's yours. Contribute, collaborate, and be part 
 
 ## Stay Connected 🌐
 
-- **Discord**: [Dive into discussions]([YOUR_DISCORD_LINK](https://discord.com/invite/H2EYXp8C)) and brainstorm with fellow innovators.
-- **LinkedIn**: [Connect with us]([YOUR_LINKEDIN_LINK](https://www.linkedin.com/in/chris-ngandimoun-745508109?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app)) for the latest updates and opportunities.
+- **Discord**: [Dive into discussions]([https://discord.com/invite/H2EYXp8C]()) and brainstorm with fellow innovators.
+- **LinkedIn**: [Connect with us]([https://www.linkedin.com/in/chris-ngandimoun-745508109?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app]()) for the latest updates and opportunities.
 
 ## Embrace Open Innovation 📖
 

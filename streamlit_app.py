@@ -92,7 +92,7 @@ sidebar_style = """
     """
     
 
-st.set_page_config(layout="wide")
+st.set_page_config(page_title="Minato.ai", layout="wide")
 
 # Injecting the style
 st.markdown(sidebar_style, unsafe_allow_html=True)

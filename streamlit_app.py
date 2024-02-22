@@ -113,10 +113,10 @@ if options == '🏠 Home':
 elif options == '🛠️ Software Assistant':
     load_app('chatbot_main.py')
 
-elif options == '🐍 Python Problems':
+elif options == '🐍 Coding Challenges':
     load_app('coding_main.py')
 
-elif options == '🌐 Real World Case':
+elif options == '🌐 Bespoke Software':
     load_app('entrepise_ui_components.py')
 
 

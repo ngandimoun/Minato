@@ -4,7 +4,7 @@ from config import USER_AVATAR, BOT_AVATAR
 
 def main():
     # Set up the page configuration and title
-    st.set_page_config(page_title="Python Code Assistant", layout="wide")
+    #st.set_page_config(page_title="Python Code Assistant", layout="wide")
     st.title("Python Code Simulation")
 
     # Configuration UI for entering the OpenAI API key

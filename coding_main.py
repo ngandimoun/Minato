@@ -1,6 +1,6 @@
 import streamlit as st
 from coding_ui_components import configuration_expander, python_challenge_ui, python_code_executor_ui
-from config import USER_AVATAR, BOT_AVATAR
+from coding_config import USER_AVATAR, BOT_AVATAR
 
 def main():
     # Set up the page configuration and title

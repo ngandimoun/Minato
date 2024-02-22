@@ -8,7 +8,7 @@ from chat_history_utils import load_chat_history, save_chat_history
 
 def main():
     # Setup the Streamlit page
-    st.set_page_config(page_title="AI Chat Application", layout="wide")
+    #st.set_page_config(page_title="AI Chat Application", layout="wide")
     st.title("AI Chat Application")
 
     # Initialize session state variables if they don't exist

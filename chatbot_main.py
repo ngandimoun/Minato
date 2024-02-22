@@ -35,11 +35,7 @@ def main():
 
 
 
-    # Additional information or footer
-    st.markdown("---")
-    st.markdown("---")
 
-    st.markdown("Developed with :heart: by [Chris NGANDIMOUN](https://yourwebsite.com)")
 
 if __name__ == "__main__":
     main()

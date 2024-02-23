@@ -380,7 +380,7 @@ def main_ui():
     st.markdown("---")
     st.markdown("---")
 
-     st.markdown("Developed with :heart: by [Chris NGANDIMOUN](https://www.linkedin.com/in/chris-ngandimoun-745508109?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app)")
+    st.markdown("Developed with :heart: by [Chris NGANDIMOUN](https://www.linkedin.com/in/chris-ngandimoun-745508109?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app)")
 
 if __name__ == "__main__":
     main_ui()

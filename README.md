@@ -42,13 +42,22 @@ Welcome to the OpenSource AI Assistant – your gateway to effortlessly building
 - **Efficiency**: Redefine what it means to customize software, offering a path to rapid development and innovation without the traditional complexities.
 
 ---
-## DEMO
+## DEMO Products
 
-**Instant Interactive Education Platforms**
+
+## Custom AI Chatbot for any fields
+[streamlit-streamlit_app-2024-02-23-19-02-18.webm](https://github.com/ngandimoun/Minato/assets/43313325/9b4b8e85-f397-495b-8f5e-414e0efc69e5)
+
+
+
+
+## Instant Interactive Education Platforms
 
 https://github.com/ngandimoun/Minato.ai/assets/43313325/96d4e980-2e8c-4e8e-a06b-ed06021637bd
 
-**Create Bespoke Entreprise Software**
+
+
+## Create Bespoke Entreprise Software
 
 https://github.com/ngandimoun/Minato.ai/assets/43313325/6da2d1f7-d91c-489c-b7b3-1b9fa0ab8ceb
 

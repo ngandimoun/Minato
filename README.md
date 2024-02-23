@@ -17,6 +17,8 @@ Welcome to the OpenSource AI Assistant – your gateway to effortlessly building
 
 1. **Simplify Custom AI Chatbots**: Embrace AI without the intricacies. Tailor-made chatbots for any sector, from healthcare to legal, are now within reach, ready to enhance user engagement and services.
 
+
+
 2. **Instant Interactive Education Platforms**: Utilize Streamlit to craft compelling educational experiences that resonate and retain interest, making learning not just informative but truly engaging.
 
 3. **Ultra-Customization Within Reach**: The era of laborious code adjustments is over. Our assistant redefines flexibility in software development, enabling swift, profound modifications with ease.
@@ -40,6 +42,15 @@ Welcome to the OpenSource AI Assistant – your gateway to effortlessly building
 - **Efficiency**: Redefine what it means to customize software, offering a path to rapid development and innovation without the traditional complexities.
 
 ---
+## DEMO
+
+**Instant Interactive Education Platforms**
+
+https://github.com/ngandimoun/Minato.ai/assets/43313325/96d4e980-2e8c-4e8e-a06b-ed06021637bd
+
+**Create Bespoke Entreprise Software**
+
+https://github.com/ngandimoun/Minato.ai/assets/43313325/6da2d1f7-d91c-489c-b7b3-1b9fa0ab8ceb
 
 
 ## Getting Started: Effortless 🌬️
@@ -51,6 +62,10 @@ git clone https://github.com/ngandimoun/Minato.git
 
 pip install -r requirements.txt
 ```
+
+
+
+
 
 Dive deeper into our capabilities by visiting our [documentation site](https://minato-ai.streamlit.app/).
 

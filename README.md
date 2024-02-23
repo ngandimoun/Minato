@@ -20,6 +20,27 @@ Welcome to the OpenSource AI Assistant – your gateway to effortlessly building
 
 3. **Ultra-Customization Within Reach**: The era of laborious code adjustments is over. Our assistant redefines flexibility in software development, enabling swift, profound modifications with ease.
 
+
+
+
+## 🧠 HOW IT WORKS:
+
+### Custom AI Chatbot
+- **Deployment**: The app can be deployed to the cloud or self-hosted, addressing any data privacy concerns effectively.
+- **Connectivity**: Create AI chatbots that seamlessly connect to APIs, databases, documents, and tools, enhancing interaction and accessibility.
+- **Interactivity**: Ask questions on specific topics and receive answers, facilitating a dynamic and intelligent chat experience.
+
+### Instant Interactive Education Platforms
+- **Engagement**: Utilize Streamlit to craft educational experiences that are both compelling and engaging, making learning not just informative but truly captivating.
+- **Interactivity**: Transform the educational landscape by creating platforms that resonate with users, retaining interest and fostering a deeper understanding of the material.
+
+### Ultra-Customization Within Reach
+- **Simplification**: Say goodbye to the era of laborious code adjustments. Our assistant introduces unparalleled flexibility in software development, enabling swift and significant modifications with minimal effort.
+- **Efficiency**: Redefine what it means to customize software, offering a path to rapid development and innovation without the traditional complexities.
+
+---
+
+
 ## Getting Started: Effortless 🌬️
 
 Begin your development journey with these simple steps:

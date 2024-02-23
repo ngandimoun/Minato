@@ -32,14 +32,13 @@ def configuration_expander():
         else:
             st.warning("Please enter a valid API Key.")
 
-def chat_history_expander(messages):
+def chat_history_expander():
     """
     Creates a UI component for managing chat history.
     """
     with st.expander("Chat History"):
         if st.button("Delete Chat History"):
-            messages.clear()  # Clear the chat history in the session state
-            save_chat_history([])  # Save the empty chat history to the database
+            st.session_state["messages"] = []  # Clear the chat history in the session state
             st.success("Chat history deleted!")
 
 

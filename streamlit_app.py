@@ -111,7 +111,7 @@ if options == '🏠 Home':
     show_about_us()
 
 elif options == '🛠️ Software Assistant':
-    load_app('chatbot_main.py')
+    load_app('assistant.py')
 
 elif options == '🐍 Coding Challenges':
     load_app('coding_main.py')

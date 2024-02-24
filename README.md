@@ -2,9 +2,9 @@
 
 ---
 
-# OpenSource AI Assistant: Revolutionize Enterprise Software Development 🌟
+# OpenSource AI for Devs building Entreprise software: Revolutionize Enterprise Software Development 🌟
 
-Welcome to the OpenSource AI Assistant – your gateway to effortlessly building, ultra-customizing, and deploying enterprise software across a myriad of industries. Confronted with the complexities of custom software development and AI chatbot integration, our Python-powered solution stands as the epitome of simplicity and efficiency in the digital era.
+Welcome to the OpenSource AI Companion – your gateway to effortlessly building, ultra-customizing, and deploying enterprise software across a myriad of industries. Confronted with the complexities of custom software development and AI chatbot integration, our Python-powered solution stands as the epitome of simplicity and efficiency in the digital era.
 
 
 ---

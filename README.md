@@ -46,6 +46,11 @@ In a world teeming with schools, universities, institutes, and online platforms,
 - **Simplification**: Say goodbye to the era of laborious code adjustments. Our assistant introduces unparalleled flexibility in software development, enabling swift and significant modifications with minimal effort.
 - **Efficiency**: Redefine what it means to customize software, offering a path to rapid development and innovation without the traditional complexities.
 
+
+
+
+![Cqy6pENCUNhoLkhxfaFaZr](https://github.com/ngandimoun/Minato/assets/43313325/d781acd7-6685-49be-b41a-e70344ab8bcc)
+
 ---
 ## DEMO Products
 

@@ -10,7 +10,7 @@ def generate_python_challenge(difficulty, topic):
     Generates a Python programming challenge based on the specified difficulty and topic.
     
     Parameters:
-    - difficulty (str): The difficulty level of the challenge (e.g., "Beginner", "Intermediate").
+    - difficulty (str): The difficulty level of the challenge (e.g., "Easy", "Medium").
     - topic (str): The topic for the challenge (e.g., "Data Structures", "Algorithms").
     
     Returns:
@@ -22,8 +22,8 @@ def generate_python_challenge(difficulty, topic):
         return
 
     model = "gpt-3.5-turbo-instruct"  # Or the latest appropriate model for generating coding challenges
-    #prompt = f"Create a Python programming challenge of {difficulty} difficulty level related to {topic}. Include a problem statement, sample input, expected output, and a hint."
-    prompt = f"Create a {difficulty} level Python challenge related to {topic}. " \
+    #prompt = f"Create a Python3 programming challenge of {difficulty} difficulty level related to {topic}. Include a problem statement, sample input, expected output, and a hint."
+    prompt = f"Create a {difficulty} level Python3 challenge related to {topic}. " \
                       f"Provide a problem statement, sample input, expected output, explanation and hint."
 
     try:

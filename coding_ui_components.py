@@ -33,7 +33,7 @@ def python_challenge_ui():
     python_topics = [
         # Fundamentals
         "Math Operations", "Data Structures", "String Manipulation", "Array Manipulation",
-        "Error Handling", "Regular Expressions",
+        "Error Handling", "Regular Expressions", "General Coding Framework as Codesignal ",
 
         # Intermediate Concepts
         #"Decorators in Python", "Generators and Iterators", "Context Managers",

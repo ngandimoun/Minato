@@ -27,7 +27,7 @@ def python_challenge_ui():
         <span style="color: #2874A6; font-weight: bold; font-size: 24px;">Python Challenge</span>
     </h2>
     """, unsafe_allow_html=True)
-    difficulty = st.selectbox("Select Difficulty Level", ["Beginner", "Intermediate", "Hard", "Expert"], key='difficulty')
+    difficulty = st.selectbox("Select Difficulty Level", ["Easy", "Medium", "Hard", "Expert"], key='difficulty')
 
     # Enhanced list of Python-specific topics
     python_topics = [

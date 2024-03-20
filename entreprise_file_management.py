@@ -89,7 +89,7 @@ def list_files_recursively(directory):
 def is_image_or_video(file_name):
     # Define a list of common image and video file extensions
     image_extensions = ['.jpg', '.jpeg', '.png', '.gif', '.bmp', '.tiff', '.ico', '.otf', '.svg', '.txt', '.rst', '.log', '.cfg', '.conf', '.ini', '.csv']
-    video_extensions = ['.mp4', '.avi', '.mov', '.wmv', '.flv', '.mkv', '.rev', '.idx', '.jsx', '.less', '.scss', '.sass', '.eps', '.ai', '.psd', '.pack', '.webm', '.webp',  '.svgz', '.ttf', '.woff', '.woff2', '.eot', '.mkv']
+    video_extensions = ['.mp4', '.avi', '.mov', '.wmv', '.flv', '.mkv', '.rev', '.less', '.scss', '.sass', '.eps', '.ai', '.psd', '.pack', '.webm', '.webp',  '.svgz', '.ttf', '.woff', '.woff2', '.eot', '.mkv']
 
 
     # Check if the file has an image or video extension
